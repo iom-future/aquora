@@ -1,122 +1,62 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Problem from './components/Problem';
+import HowItWorks from './components/HowItWorks';
+import Features from './components/Features';
+import IntelligenceLoop from './components/IntelligenceLoop';
+import Audience from './components/Audience';
+import FutureVision from './components/FutureVision';
+import Trust from './components/Trust';
+import PilotForm from './components/PilotForm';
+import FAQ from './components/FAQ';
+import FinalCTA from './components/FinalCTA';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen bg-[#101C2C] text-[#F3F8FA] selection:bg-[#3289D6] selection:text-white font-['Inter',sans-serif]">
+      {/* 01. Fixed Navigation Header */}
+      <Navbar />
 
-      <div className="ticks"></div>
+      <main id="main-content">
+        {/* 02. Hero Section with Geospatial Dashboard Mockup */}
+        <Hero />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {/* 03. The Challenge / Problem */}
+        <Problem />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* 04. The Solution / How Aquora Works + Interactive Demonstration */}
+        <HowItWorks />
+
+        {/* 05. Platform Capabilities */}
+        <Features />
+
+        {/* 06. The Aquora Intelligence Engine / Loop */}
+        <IntelligenceLoop />
+
+        {/* 07. Who Aquora Is For / Audience */}
+        <Audience />
+
+        {/* 08. Beyond Monitoring — Long-Term Vision & Digital Twin Layers */}
+        <FutureVision />
+
+        {/* 09. Trust, Data & Responsible Monitoring */}
+        <Trust />
+
+        {/* 10. Pilot Programme & Early Access Application */}
+        <PilotForm />
+
+        {/* 11. Frequently Asked Questions */}
+        <FAQ />
+
+        {/* 12. Final Call to Action */}
+        <FinalCTA />
+      </main>
+
+      {/* 13. Comprehensive Footer */}
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
