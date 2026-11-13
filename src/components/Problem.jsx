@@ -18,7 +18,7 @@ export default function Problem() {
   };
 
   return (
-    <section id="the-challenge" className="relative w-full max-w-full py-24 sm:py-32 bg-[#F8FAFC] border-t border-sky-100 overflow-hidden">
+    <section id="the-challenge" className="relative w-full max-w-full py-24 sm:py-32 bg-[#F8FAFC] overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">

@@ -22,7 +22,7 @@ export default function FinalCTA() {
 
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] mb-6 font-['Manrope']">
           Every Drop Matters.{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0284C7] via-[#0369A1] to-[#0D9488]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0284C7] via-[#0369A1] to-[#2563EB]">
             Every Decision Counts.
           </span>
         </h2>
@@ -35,7 +35,7 @@ export default function FinalCTA() {
           <a
             href="#pilot-access"
             onClick={scrollToPilot}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full text-base font-semibold text-white bg-gradient-to-r from-[#0369A1] via-[#0284C7] to-[#0D9488] hover:opacity-95 shadow-xl shadow-[#0284C7]/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full text-base font-semibold text-white bg-gradient-to-r from-[#0284C7] via-[#0369A1] to-[#2563EB] hover:opacity-95 shadow-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>{finalCtaContent.ctaText}</span>
             <ArrowRight className="w-5 h-5" />

@@ -1,4 +1,11 @@
-export default function AquoraLogo({ className = "h-8", showText = true, textClassName = "text-xl", isDark = false }) {
+export default function AquoraLogo({
+  className = "h-8",
+  showText = true,
+  textClassName = "text-xl",
+  subtitleClassName = "text-[9px]",
+  showSubtitle = true,
+  isDark = false
+}) {
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* Geometric Infrastructure & Flow Symbol */}
@@ -66,13 +73,15 @@ export default function AquoraLogo({ className = "h-8", showText = true, textCla
       </svg>
 
       {showText && (
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <span className={`font-['Manrope'] font-extrabold tracking-[0.14em] uppercase leading-none ${isDark ? 'text-white' : 'text-[#0F172A]'} ${textClassName}`}>
             AQUORA
           </span>
-          <span className={`text-[9px] tracking-[0.24em] uppercase font-semibold mt-1 ${isDark ? 'text-sky-200' : 'text-[#0284C7]'}`}>
-            Water Intelligence
-          </span>
+          {showSubtitle && (
+            <span className={`tracking-[0.22em] uppercase font-semibold mt-1 leading-none ${isDark ? 'text-sky-200' : 'text-[#0284C7]'} ${subtitleClassName}`}>
+              Water Intelligence
+            </span>
+          )}
         </div>
       )}
     </div>

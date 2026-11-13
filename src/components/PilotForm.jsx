@@ -375,7 +375,7 @@ export default function PilotForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#0369A1] via-[#0284C7] to-[#0D9488] hover:opacity-95 shadow-xl shadow-[#0284C7]/25 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#0284C7] via-[#0369A1] to-[#2563EB] hover:opacity-95 shadow-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
