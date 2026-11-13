@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#101C2C"/>
+  <rect width="1200" height="630" fill="#F8FAFC"/>
   <defs>
     <radialGradient id="og-glow" cx="600" cy="315" r="500" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#174D78" stop-opacity="0.45"/>
-      <stop offset="0.6" stop-color="#101C2C" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#0B131E"/>
+      <stop stop-color="#BAE6FD" stop-opacity="0.5"/>
+      <stop offset="0.6" stop-color="#E0F2FE" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
     </radialGradient>
     <linearGradient id="og-flow" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#42C7B5"/>
-      <stop offset="0.5" stop-color="#3289D6"/>
-      <stop offset="1" stop-color="#174D78"/>
+      <stop stop-color="#0D9488"/>
+      <stop offset="0.5" stop-color="#0284C7"/>
+      <stop offset="1" stop-color="#0369A1"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#og-glow)"/>
   
   <!-- Grid Lines -->
-  <g stroke="#1E375A" stroke-width="1" opacity="0.4">
+  <g stroke="#BAE6FD" stroke-width="1" opacity="0.4">
     <line x1="0" y1="105" x2="1200" y2="105"/>
     <line x1="0" y1="210" x2="1200" y2="210"/>
     <line x1="0" y1="315" x2="1200" y2="315"/>
@@ -30,21 +30,20 @@
 
   <!-- Logo Symbol -->
   <g transform="translate(100, 160) scale(2.2)">
-    <polygon points="22,3 38.4,12.5 38.4,31.5 22,41 5.6,31.5 5.6,12.5" stroke="#1E375A" stroke-width="1.5" stroke-dasharray="3 3" fill="none" opacity="0.6"/>
+    <polygon points="22,3 38.4,12.5 38.4,31.5 22,41 5.6,31.5 5.6,12.5" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="3 3" fill="none" opacity="0.8"/>
     <path d="M10 22 C14 14, 22 14, 22 22 C22 30, 30 30, 34 22" stroke="url(#og-flow)" stroke-width="3.5" stroke-linecap="round"/>
-    <line x1="22" y1="6" x2="22" y2="38" stroke="#3289D6" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-    <circle cx="22" cy="22" r="3.8" fill="#101C2C" stroke="#42C7B5" stroke-width="2.4"/>
-    <circle cx="22" cy="22" r="1.6" fill="#42C7B5"/>
+    <line x1="22" y1="6" x2="22" y2="38" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="22" cy="22" r="3.8" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.4"/>
+    <circle cx="22" cy="22" r="1.6" fill="#0D9488"/>
   </g>
 
   <!-- Typography -->
-  <text x="220" y="225" fill="#FFFFFF" font-family="'Manrope', sans-serif" font-size="52" font-weight="800" letter-spacing="4">AQUORA</text>
-  <text x="225" y="255" fill="#42C7B5" font-family="'Inter', monospace" font-size="16" font-weight="600" letter-spacing="3">WATER INFRASTRUCTURE INTELLIGENCE</text>
+  <text x="220" y="225" fill="#0F172A" font-family="'Manrope', sans-serif" font-size="52" font-weight="800" letter-spacing="4">AQUORA</text>
+  <text x="225" y="255" fill="#0284C7" font-family="'Inter', monospace" font-size="16" font-weight="600" letter-spacing="3">WATER INFRASTRUCTURE INTELLIGENCE</text>
 
-  <text x="100" y="370" fill="#FFFFFF" font-family="'Manrope', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Every Drop. Better Understood.</text>
-  <text x="100" y="420" fill="#94A3B8" font-family="'Inter', sans-serif" font-size="24" font-weight="400">Turning water infrastructure data into actionable intelligence for resilient water systems.</text>
+  <text x="100" y="370" fill="#0F172A" font-family="'Manrope', sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Every Drop. Better Understood.</text>
+  <text x="100" y="420" fill="#475569" font-family="'Inter', sans-serif" font-size="24" font-weight="400">Turning water infrastructure data into actionable intelligence for resilient water systems.</text>
 
-  <rect x="100" y="490" width="220" height="48" rx="24" fill="#3289D6"/>
+  <rect x="100" y="490" width="220" height="48" rx="24" fill="#0284C7"/>
   <text x="210" y="521" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="700" text-anchor="middle">EARLY ACCESS PILOT</text>
 </svg>
-

@@ -74,10 +74,10 @@ export default function SatelliteNetworkMap({ className = "" }) {
   ];
 
   return (
-    <div className={`relative w-full max-w-full rounded-2xl overflow-hidden border border-[#1E375A] bg-[#0B131E] select-none ${className}`}>
+    <div className={`relative w-full max-w-full rounded-2xl overflow-hidden border border-sky-200/90 bg-[#F0F7FF] select-none ${className}`}>
       {/* Satellite Topo Grid Background */}
-      <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial from-transparent via-[#0B131E]/40 to-[#0B131E] pointer-events-none" />
+      <div className="absolute inset-0 tech-grid opacity-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial from-transparent via-[#F0F7FF]/30 to-[#F0F7FF] pointer-events-none" />
 
       {/* Geospatial Map Canvas / SVG */}
       <div className="relative w-full max-w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
@@ -88,82 +88,82 @@ export default function SatelliteNetworkMap({ className = "" }) {
         >
           <defs>
             <linearGradient id="main-aqueduct" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#174D78" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#3289D6" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#42C7B5" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#0369A1" />
+              <stop offset="50%" stopColor="#0284C7" />
+              <stop offset="100%" stopColor="#0D9488" />
             </linearGradient>
 
             <linearGradient id="anomaly-segment" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3289D6" />
-              <stop offset="100%" stopColor="#F59E0B" />
+              <stop offset="0%" stopColor="#0284C7" />
+              <stop offset="100%" stopColor="#D97706" />
             </linearGradient>
 
             <radialGradient id="lake-catchment" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#174D78" stopOpacity="0.6" />
-              <stop offset="70%" stopColor="#0B131E" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#0B131E" stopOpacity="0.1" />
+              <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.8" />
+              <stop offset="70%" stopColor="#E0F2FE" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#F0F7FF" stopOpacity="0.2" />
             </radialGradient>
           </defs>
 
           {/* Topographic Contour Contours (Geographic Basin) */}
           <path
             d="M 60,60 Q 220,30 360,90 T 700,70 T 880,110"
-            stroke="#174D78"
-            strokeWidth="0.8"
+            stroke="#BAE6FD"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
             fill="none"
-            opacity="0.35"
+            opacity="0.8"
           />
           <path
             d="M 40,120 Q 200,80 400,160 T 740,130 T 900,190"
-            stroke="#174D78"
-            strokeWidth="0.8"
+            stroke="#BAE6FD"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
             fill="none"
-            opacity="0.4"
+            opacity="0.8"
           />
           <path
             d="M 50,220 Q 240,180 440,240 T 720,210 T 890,290"
-            stroke="#174D78"
-            strokeWidth="0.8"
+            stroke="#BAE6FD"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
             fill="none"
-            opacity="0.35"
+            opacity="0.8"
           />
           <path
             d="M 70,320 Q 260,280 470,340 T 760,310 T 890,410"
-            stroke="#174D78"
-            strokeWidth="0.8"
+            stroke="#BAE6FD"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
             fill="none"
-            opacity="0.3"
+            opacity="0.8"
           />
 
           {/* Natural Catchment / Reservoir Body */}
           <ellipse cx="170" cy="120" rx="95" ry="60" fill="url(#lake-catchment)" />
           <path
             d="M 90,130 C 130,85 210,95 240,140 C 260,170 190,180 140,170 Z"
-            fill="#174D78"
-            fillOpacity="0.25"
-            stroke="#3289D6"
-            strokeWidth="1.2"
-            strokeDasharray="2 4"
+            fill="#BAE6FD"
+            fillOpacity="0.4"
+            stroke="#0284C7"
+            strokeWidth="1.5"
+            strokeDasharray="3 4"
           />
-          <text x="120" y="135" fill="#42C7B5" fontSize="9" letterSpacing="1" fontFamily="monospace" opacity="0.8">
+          <text x="120" y="135" fill="#0369A1" fontSize="9" letterSpacing="1" fontFamily="monospace" fontWeight="600" opacity="0.9">
             RESERVOIR BASIN ALPHA
           </text>
 
           {/* District Metered Area Boundaries */}
           <polygon
             points="460,260 640,240 690,420 480,440"
-            fill="#174D78"
-            fillOpacity="0.08"
-            stroke="#3289D6"
-            strokeWidth="1"
+            fill="#E0F2FE"
+            fillOpacity="0.4"
+            stroke="#0284C7"
+            strokeWidth="1.2"
             strokeDasharray="5 5"
-            opacity="0.6"
+            opacity="0.7"
           />
-          <text x="530" y="380" fill="#748391" fontSize="9" letterSpacing="1" fontFamily="monospace">
+          <text x="530" y="380" fill="#0369A1" fontSize="9" letterSpacing="1" fontFamily="monospace" fontWeight="600">
             DMA ZONE 04 [LEKKI CORRIDOR]
           </text>
 
@@ -182,10 +182,10 @@ export default function SatelliteNetworkMap({ className = "" }) {
           />
           <path
             d="M 620,160 L 780,280"
-            stroke="#3289D6"
+            stroke="#0284C7"
             strokeWidth="2.5"
             strokeLinecap="round"
-            opacity="0.85"
+            opacity="0.9"
           />
           <path
             d="M 380,210 L 520,340"
@@ -196,26 +196,26 @@ export default function SatelliteNetworkMap({ className = "" }) {
           />
           <path
             d="M 520,340 L 780,280"
-            stroke="#174D78"
+            stroke="#0369A1"
             strokeWidth="2"
             strokeLinecap="round"
           />
           <path
             d="M 180,130 L 290,360 L 520,340"
-            stroke="#174D78"
+            stroke="#0369A1"
             strokeWidth="2"
             strokeDasharray="3 3"
             opacity="0.7"
           />
 
           {/* Animated Water Velocity Indicators along pipelines */}
-          <circle cx="280" cy="170" r="2.5" fill="#42C7B5">
+          <circle cx="280" cy="170" r="2.5" fill="#0D9488">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
           </circle>
-          <circle cx="500" cy="185" r="2.5" fill="#42C7B5">
+          <circle cx="500" cy="185" r="2.5" fill="#0D9488">
             <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite" />
           </circle>
-          <circle cx="450" cy="275" r="3" fill="#F59E0B">
+          <circle cx="450" cy="275" r="3" fill="#D97706">
             <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite" />
           </circle>
 
@@ -223,7 +223,7 @@ export default function SatelliteNetworkMap({ className = "" }) {
           {nodes.map((node) => {
             const isSelected = selectedNode?.id === node.id;
             const isAlert = node.status === "warning";
-            const color = isAlert ? "#F59E0B" : "#42C7B5";
+            const color = isAlert ? "#D97706" : "#0284C7";
 
             return (
               <g
@@ -241,7 +241,7 @@ export default function SatelliteNetworkMap({ className = "" }) {
                     cy={node.coords.y}
                     r="18"
                     fill="none"
-                    stroke="#F59E0B"
+                    stroke="#D97706"
                     strokeWidth="1.5"
                     opacity="0.8"
                     className="animate-ping-slow"
@@ -252,10 +252,10 @@ export default function SatelliteNetworkMap({ className = "" }) {
                   cx={node.coords.x}
                   cy={node.coords.y}
                   r={isSelected ? "14" : "10"}
-                  fill={isAlert ? "#78350F" : "#132238"}
+                  fill="#FFFFFF"
                   stroke={color}
                   strokeWidth={isSelected ? "2.5" : "1.8"}
-                  className="transition-all"
+                  className="transition-all shadow-sm"
                 />
 
                 <circle
@@ -271,17 +271,17 @@ export default function SatelliteNetworkMap({ className = "" }) {
                   width="54"
                   height="16"
                   rx="3"
-                  fill="#101C2C"
-                  stroke="#1E375A"
-                  strokeWidth="0.8"
-                  opacity="0.9"
+                  fill="#FFFFFF"
+                  stroke="#BAE6FD"
+                  strokeWidth="1"
+                  opacity="0.95"
                 />
                 <text
                   x={node.coords.x + 16}
                   y={node.coords.y}
-                  fill="#F3F8FA"
+                  fill="#0F172A"
                   fontSize="8.5"
-                  fontWeight="600"
+                  fontWeight="700"
                   fontFamily="monospace"
                 >
                   {node.id}
@@ -293,68 +293,68 @@ export default function SatelliteNetworkMap({ className = "" }) {
 
         {/* Selected Node Telemetry HUD / Inspector */}
         {selectedNode && (
-          <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm glass-panel-elevated p-3 sm:p-4 rounded-xl z-20 animate-fade-in max-w-[calc(100%-1rem)] sm:max-w-sm">
+          <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm bg-white/95 border border-sky-200/90 shadow-xl p-3 sm:p-4 rounded-xl z-20 animate-fade-in max-w-[calc(100%-1rem)] sm:max-w-sm">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div className="flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${selectedNode.status === 'warning' ? 'bg-amber-400 animate-pulse' : 'bg-[#42C7B5]'}`} />
-                <span className="text-xs font-mono uppercase tracking-wider text-[#748391]">{selectedNode.id} • {selectedNode.type}</span>
+                <span className={`w-2 h-2 rounded-full ${selectedNode.status === 'warning' ? 'bg-amber-500 animate-pulse' : 'bg-[#0D9488]'}`} />
+                <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] font-semibold">{selectedNode.id} • {selectedNode.type}</span>
               </div>
               <button
                 onClick={() => setSelectedNode(null)}
-                className="text-xs text-[#748391] hover:text-white px-1.5 py-0.5 rounded bg-[#101C2C]/60 cursor-pointer"
+                className="text-xs text-[#64748B] hover:text-[#0F172A] px-1.5 py-0.5 rounded bg-sky-50 cursor-pointer"
               >
                 ✕
               </button>
             </div>
             
-            <h4 className="font-['Manrope'] font-bold text-sm text-white mb-2">{selectedNode.name}</h4>
+            <h4 className="font-['Manrope'] font-bold text-sm text-[#0F172A] mb-2">{selectedNode.name}</h4>
             
             <div className="grid grid-cols-2 gap-2 text-xs mb-3">
-              <div className="bg-[#101C2C]/70 p-2 rounded-lg border border-[#1E375A]/60">
-                <span className="text-[#748391] text-[10px] block">Line Pressure</span>
-                <span className="font-mono font-semibold text-white">{selectedNode.pressure}</span>
+              <div className="bg-sky-50/70 p-2 rounded-lg border border-sky-100">
+                <span className="text-[#64748B] text-[10px] block">Line Pressure</span>
+                <span className="font-mono font-semibold text-[#0F172A]">{selectedNode.pressure}</span>
               </div>
-              <div className="bg-[#101C2C]/70 p-2 rounded-lg border border-[#1E375A]/60">
-                <span className="text-[#748391] text-[10px] block">Flow Rate</span>
-                <span className="font-mono font-semibold text-[#42C7B5]">{selectedNode.flow}</span>
+              <div className="bg-sky-50/70 p-2 rounded-lg border border-sky-100">
+                <span className="text-[#64748B] text-[10px] block">Flow Rate</span>
+                <span className="font-mono font-semibold text-[#0D9488]">{selectedNode.flow}</span>
               </div>
             </div>
 
-            <p className="text-[11px] text-[#748391] leading-relaxed mb-2">
+            <p className="text-[11px] text-[#475569] leading-relaxed mb-2">
               {selectedNode.desc}
             </p>
 
-            <div className="flex items-center justify-between text-[10px] pt-2 border-t border-[#1E375A]/70 text-[#748391]">
-              <span>Status: <strong className="text-white">{selectedNode.level}</strong></span>
-              <span className="text-[#3289D6] font-mono">Link OK</span>
+            <div className="flex items-center justify-between text-[10px] pt-2 border-t border-sky-100 text-[#64748B]">
+              <span>Status: <strong className="text-[#0F172A]">{selectedNode.level}</strong></span>
+              <span className="text-[#0284C7] font-mono font-medium">Link OK</span>
             </div>
           </div>
         )}
 
         {/* Live Network Status Indicator Overlay */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex flex-wrap items-center gap-2 pointer-events-none max-w-[calc(100%-1.5rem)]">
-          <div className="glass-panel px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#42C7B5] animate-pulse flex-shrink-0" />
-            <span className="font-mono text-[#F3F8FA] truncate">TELEMETRY ACTIVE</span>
+          <div className="bg-white/90 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs border border-sky-200 shadow-sm">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0D9488] animate-pulse flex-shrink-0" />
+            <span className="font-mono text-[#0F172A] font-semibold truncate">TELEMETRY ACTIVE</span>
           </div>
-          <div className="hidden sm:flex glass-panel px-3 py-1.5 rounded-full items-center gap-2 text-xs text-[#748391]">
-            <Radio className="w-3.5 h-3.5 text-[#3289D6]" />
+          <div className="hidden sm:flex bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full items-center gap-2 text-xs text-[#64748B] border border-sky-200 shadow-sm">
+            <Radio className="w-3.5 h-3.5 text-[#0284C7]" />
             <span>Click any node to inspect</span>
           </div>
         </div>
 
         {/* Legend */}
-        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 hidden md:flex items-center gap-3 glass-panel px-3 py-1.5 rounded-lg text-[11px] text-[#748391]">
+        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 hidden md:flex items-center gap-3 bg-white/90 backdrop-blur-md border border-sky-200 px-3 py-1.5 rounded-lg text-[11px] text-[#64748B] shadow-sm">
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#42C7B5]" />
+            <span className="w-2 h-2 rounded-full bg-[#0D9488]" />
             <span>Nominal Flow</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            <span className="w-2 h-2 rounded-full bg-amber-500" />
             <span>Anomaly Flagged</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-0.5 bg-[#3289D6]" />
+            <span className="w-2 h-0.5 bg-[#0284C7]" />
             <span>Trunk Conduit</span>
           </div>
         </div>

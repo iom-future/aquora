@@ -18,9 +18,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0B131E] border-t border-[#1E375A] text-[#94A3B8] relative select-none w-full max-w-full overflow-hidden">
+    <footer className="bg-[#F8FAFC] border-t border-sky-200 text-[#475569] relative select-none w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#1E375A]/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-sky-200">
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-5">
             <a
@@ -35,23 +35,23 @@ export default function Footer() {
               <AquoraLogo className="h-9" />
             </a>
 
-            <p className="text-sm text-[#748391] max-w-sm leading-relaxed">
+            <p className="text-sm text-[#64748B] max-w-sm leading-relaxed">
               {footerContent.shortDescription}
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#101C2C] border border-[#1E375A] text-xs text-[#748391]">
-              <span className="w-2 h-2 rounded-full bg-[#42C7B5] animate-pulse" />
-              <span>System Status: <strong className="text-white">Active Operational</strong></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-xs text-[#64748B] shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#0D9488] animate-pulse" />
+              <span>System Status: <strong className="text-[#0F172A]">Active Operational</strong></span>
             </div>
 
-            <p className="text-xs text-[#748391] font-mono">
+            <p className="text-xs text-[#64748B] font-mono">
               {footerContent.initialMarket}
             </p>
           </div>
 
           {/* Links Column 1: Platform */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0F172A]">
               Platform
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -60,7 +60,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="hover:text-[#42C7B5] transition-colors"
+                    className="hover:text-[#0284C7] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Links Column 2: Company */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0F172A]">
               Company
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -80,7 +80,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="hover:text-[#42C7B5] transition-colors"
+                    className="hover:text-[#0284C7] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Links Column 3: Resources & Social */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0F172A]">
               Resources
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -100,7 +100,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="hover:text-[#42C7B5] transition-colors"
+                    className="hover:text-[#0284C7] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -109,7 +109,7 @@ export default function Footer() {
             </ul>
 
             <div className="pt-2">
-              <h5 className="text-xs font-mono font-semibold text-[#748391] uppercase tracking-wider mb-2">
+              <h5 className="text-xs font-mono font-semibold text-[#0F172A] uppercase tracking-wider mb-2">
                 Connect
               </h5>
               <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export default function Footer() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-[#101C2C] border border-[#1E375A] text-[#748391] hover:text-[#42C7B5] hover:border-[#42C7B5]/40 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-sky-200 text-[#64748B] hover:text-[#0284C7] hover:border-sky-300 shadow-sm transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@ export default function Footer() {
                   href="https://x.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-[#101C2C] border border-[#1E375A] text-[#748391] hover:text-[#42C7B5] hover:border-[#42C7B5]/40 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-sky-200 text-[#64748B] hover:text-[#0284C7] hover:border-sky-300 shadow-sm transition-colors"
                   aria-label="X (formerly Twitter)"
                 >
                   <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ export default function Footer() {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-[#101C2C] border border-[#1E375A] text-[#748391] hover:text-[#42C7B5] hover:border-[#42C7B5]/40 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-sky-200 text-[#64748B] hover:text-[#0284C7] hover:border-sky-300 shadow-sm transition-colors"
                   aria-label="YouTube"
                 >
                   <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#748391]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
           <div className="flex flex-wrap items-center gap-4">
             <span>{footerContent.copyright}</span>
             <span className="hidden sm:inline">•</span>
@@ -164,11 +164,11 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101C2C] border border-[#1E375A] hover:text-white hover:border-[#3289D6] transition-all cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-sky-200 text-[#0F172A] hover:bg-sky-50 hover:border-sky-300 shadow-sm transition-all cursor-pointer font-medium"
             aria-label="Back to top"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3.5 h-3.5 text-[#0284C7]" />
           </button>
         </div>
       </div>

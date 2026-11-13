@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none">
   <defs>
     <linearGradient id="fav-flow" x1="4" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-      <stop stopColor="#42C7B5" />
-      <stop offset="0.55" stopColor="#3289D6" />
-      <stop offset="1" stopColor="#174D78" />
+      <stop stopColor="#0D9488" />
+      <stop offset="0.5" stopColor="#0284C7" />
+      <stop offset="1" stopColor="#0369A1" />
     </linearGradient>
   </defs>
-  <rect width="44" height="44" rx="10" fill="#101C2C" />
-  <polygon points="22,5 37,13.5 37,30.5 22,39 7,30.5 7,13.5" stroke="#1E375A" stroke-width="1.2" stroke-dasharray="2 2" fill="none" />
-  <path d="M10 22 C14 14, 22 14, 22 22 C22 30, 30 30, 34 22" stroke="url(#fav-flow)" stroke-width="3" stroke-linecap="round" />
-  <line x1="22" y1="8" x2="22" y2="36" stroke="#42C7B5" stroke-width="2" stroke-linecap="round" opacity="0.8" />
-  <circle cx="22" cy="22" r="3.5" fill="#101C2C" stroke="#42C7B5" stroke-width="2" />
-  <circle cx="22" cy="22" r="1.5" fill="#42C7B5" />
+  <rect width="44" height="44" rx="10" fill="#0284C7" />
+  <polygon points="22,5 37,13.5 37,30.5 22,39 7,30.5 7,13.5" stroke="#BAE6FD" stroke-width="1.2" stroke-dasharray="2 2" fill="none" opacity="0.6" />
+  <path d="M10 22 C14 14, 22 14, 22 22 C22 30, 30 30, 34 22" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+  <line x1="22" y1="8" x2="22" y2="36" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+  <circle cx="22" cy="22" r="3.5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2" />
+  <circle cx="22" cy="22" r="1.5" fill="#0284C7" />
 </svg>

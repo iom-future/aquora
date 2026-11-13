@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#101C2C] text-[#F3F8FA] selection:bg-[#3289D6] selection:text-white font-['Inter',sans-serif] w-full max-w-full overflow-x-hidden relative">
+    <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#BAE6FD] selection:text-[#0369A1] font-['Inter',sans-serif] w-full max-w-full overflow-x-hidden relative">
       {/* 01. Fixed Navigation Header */}
       <Navbar />
 

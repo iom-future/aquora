@@ -13,13 +13,13 @@ import { audienceData } from '../data/content';
 export default function Audience() {
   const getAudienceIcon = (index) => {
     switch (index) {
-      case 0: return <Building2 className="w-6 h-6 text-[#3289D6]" />;
-      case 1: return <Factory className="w-6 h-6 text-[#42C7B5]" />;
-      case 2: return <Home className="w-6 h-6 text-[#3289D6]" />;
-      case 3: return <FlaskConical className="w-6 h-6 text-[#42C7B5]" />;
-      case 4: return <Landmark className="w-6 h-6 text-[#3289D6]" />;
-      case 5: return <Network className="w-6 h-6 text-[#42C7B5]" />;
-      default: return <Building2 className="w-6 h-6 text-[#3289D6]" />;
+      case 0: return <Building2 className="w-6 h-6 text-[#0284C7]" />;
+      case 1: return <Factory className="w-6 h-6 text-[#0D9488]" />;
+      case 2: return <Home className="w-6 h-6 text-[#0284C7]" />;
+      case 3: return <FlaskConical className="w-6 h-6 text-[#0D9488]" />;
+      case 4: return <Landmark className="w-6 h-6 text-[#0284C7]" />;
+      case 5: return <Network className="w-6 h-6 text-[#0D9488]" />;
+      default: return <Building2 className="w-6 h-6 text-[#0284C7]" />;
     }
   };
 
@@ -36,28 +36,28 @@ export default function Audience() {
   };
 
   return (
-    <section id="solutions" className="relative w-full max-w-full py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60 overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
+    <section id="solutions" className="relative w-full max-w-full py-24 sm:py-32 bg-[#F8FAFC] border-t border-sky-100 overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-xs font-mono tracking-widest text-[#0369A1] uppercase mb-4 shadow-sm font-semibold">
             <span>{audienceData.eyebrow}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-tight mb-6">
             {audienceData.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed mb-6">
+          <p className="text-base sm:text-lg text-[#475569] leading-relaxed mb-6">
             {audienceData.subheading}
           </p>
 
           {/* Regional Market Focus Banner */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#132238]/80 border border-[#3289D6]/30 text-xs text-[#F3F8FA] max-w-[95%]">
-            <MapPin className="w-4 h-4 text-[#42C7B5] flex-shrink-0" />
-            <span className="truncate">Target Focus: <strong>Nigeria & Regional Infrastructure Networks</strong></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-sky-200 text-xs text-[#0F172A] max-w-[95%] shadow-sm">
+            <MapPin className="w-4 h-4 text-[#0284C7] flex-shrink-0" />
+            <span className="truncate">Target Focus: <strong className="text-[#0369A1]">Nigeria & Regional Infrastructure Networks</strong></span>
           </div>
         </div>
 
@@ -66,34 +66,34 @@ export default function Audience() {
           {audienceData.audiences.map((audience, idx) => (
             <div
               key={audience.title}
-              className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#42C7B5]/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl w-full"
+              className="group relative bg-white hover:bg-sky-50/40 border border-sky-200/80 hover:border-sky-300 rounded-2xl p-6 sm:p-7 transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(2,132,199,0.06)] hover:shadow-[0_12px_28px_-6px_rgba(2,132,199,0.12)] flex flex-col justify-between w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform shadow-sm">
+                  <div className="p-3 rounded-xl bg-sky-50 border border-sky-200 group-hover:scale-105 transition-transform shadow-sm">
                     {getAudienceIcon(idx)}
                   </div>
-                  <span className="text-xs font-mono text-[#42C7B5] px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                  <span className="text-xs font-mono font-semibold text-[#0284C7] px-3 py-1 rounded-full bg-sky-50 border border-sky-200 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />
                     {getAudienceTag(idx)}
                   </span>
                 </div>
 
                 <div className="mb-2">
-                  <h3 className="text-xl font-bold font-['Manrope'] text-white group-hover:text-[#F3F8FA]">
+                  <h3 className="text-xl font-bold font-['Manrope'] text-[#0F172A] group-hover:text-[#0284C7] transition-colors">
                     {audience.title}
                   </h3>
                 </div>
 
-                <p className="text-sm text-[#748391] group-hover:text-[#94A3B8] leading-relaxed mb-6">
+                <p className="text-sm text-[#475569] leading-relaxed mb-6">
                   {audience.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#1E375A]/60 flex items-center justify-between text-xs">
-                <span className="text-[#748391]">Key Objective</span>
-                <span className="font-mono text-[#42C7B5] font-medium text-right max-w-[65%] truncate flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#3289D6] flex-shrink-0" />
+              <div className="pt-4 border-t border-sky-100 flex items-center justify-between text-xs">
+                <span className="text-[#64748B]">Key Objective</span>
+                <span className="font-mono text-[#0369A1] font-semibold text-right max-w-[65%] truncate flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#0D9488] flex-shrink-0" />
                   <span className="truncate">{audience.focus}</span>
                 </span>
               </div>

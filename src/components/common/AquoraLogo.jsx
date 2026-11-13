@@ -1,4 +1,4 @@
-export default function AquoraLogo({ className = "h-8", showText = true, textClassName = "text-xl" }) {
+export default function AquoraLogo({ className = "h-8", showText = true, textClassName = "text-xl", isDark = false }) {
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* Geometric Infrastructure & Flow Symbol */}
@@ -11,28 +11,28 @@ export default function AquoraLogo({ className = "h-8", showText = true, textCla
       >
         <defs>
           <linearGradient id="aquora-flow-1" x1="4" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#42C7B5" />
-            <stop offset="0.55" stopColor="#3289D6" />
-            <stop offset="1" stopColor="#174D78" />
+            <stop stopColor="#0D9488" />
+            <stop offset="0.55" stopColor="#0284C7" />
+            <stop offset="1" stopColor="#0369A1" />
           </linearGradient>
           <linearGradient id="aquora-flow-2" x1="40" y1="8" x2="8" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#3289D6" />
-            <stop offset="1" stopColor="#42C7B5" />
+            <stop stopColor="#0284C7" />
+            <stop offset="1" stopColor="#0D9488" />
           </linearGradient>
           <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
-            <stop stopColor="#42C7B5" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#42C7B5" stopOpacity="0" />
+            <stop stopColor="#0284C7" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#0284C7" stopOpacity="0" />
           </radialGradient>
         </defs>
 
         {/* Outer Hexagonal Grid Frame / Sensor Perimeter */}
         <polygon
           points="22,3 38.4,12.5 38.4,31.5 22,41 5.6,31.5 5.6,12.5"
-          stroke="#1E375A"
+          stroke="#BAE6FD"
           strokeWidth="1.5"
           strokeDasharray="3 3"
           fill="none"
-          opacity="0.6"
+          opacity="0.9"
         />
 
         {/* Primary Intersecting Flow Ribbons (Water & Infrastructure) */}
@@ -52,25 +52,25 @@ export default function AquoraLogo({ className = "h-8", showText = true, textCla
         />
 
         {/* Diagonal Conduit Vectors */}
-        <line x1="12" y1="14" x2="32" y2="30" stroke="#3289D6" strokeWidth="1.6" opacity="0.4" />
-        <line x1="32" y1="14" x2="12" y2="30" stroke="#42C7B5" strokeWidth="1.6" opacity="0.4" />
+        <line x1="12" y1="14" x2="32" y2="30" stroke="#0284C7" strokeWidth="1.6" opacity="0.3" />
+        <line x1="32" y1="14" x2="12" y2="30" stroke="#0D9488" strokeWidth="1.6" opacity="0.3" />
 
         {/* Intelligence Telemetry Nodes */}
-        <circle cx="22" cy="22" r="3.8" fill="#101C2C" stroke="#42C7B5" strokeWidth="2.4" />
-        <circle cx="22" cy="22" r="1.6" fill="#42C7B5" />
+        <circle cx="22" cy="22" r="3.8" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2.4" />
+        <circle cx="22" cy="22" r="1.6" fill="#0D9488" />
         
-        <circle cx="22" cy="6" r="2.2" fill="#3289D6" />
-        <circle cx="22" cy="38" r="2.2" fill="#174D78" />
-        <circle cx="10" cy="22" r="2.2" fill="#42C7B5" />
-        <circle cx="34" cy="22" r="2.2" fill="#3289D6" />
+        <circle cx="22" cy="6" r="2.2" fill="#0284C7" />
+        <circle cx="22" cy="38" r="2.2" fill="#0369A1" />
+        <circle cx="10" cy="22" r="2.2" fill="#0D9488" />
+        <circle cx="34" cy="22" r="2.2" fill="#0284C7" />
       </svg>
 
       {showText && (
         <div className="flex flex-col">
-          <span className={`font-['Manrope'] font-extrabold tracking-[0.14em] text-white uppercase leading-none ${textClassName}`}>
+          <span className={`font-['Manrope'] font-extrabold tracking-[0.14em] uppercase leading-none ${isDark ? 'text-white' : 'text-[#0F172A]'} ${textClassName}`}>
             AQUORA
           </span>
-          <span className="text-[9px] tracking-[0.24em] uppercase text-[#42C7B5] font-semibold mt-1">
+          <span className={`text-[9px] tracking-[0.24em] uppercase font-semibold mt-1 ${isDark ? 'text-sky-200' : 'text-[#0284C7]'}`}>
             Water Intelligence
           </span>
         </div>
@@ -78,4 +78,3 @@ export default function AquoraLogo({ className = "h-8", showText = true, textCla
     </div>
   );
 }
-
