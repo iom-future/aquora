@@ -49,10 +49,10 @@ export default function FutureVision() {
   };
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 overflow-hidden">
+    <section className="relative w-full max-w-full py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -69,8 +69,8 @@ export default function FutureVision() {
         </div>
 
         {/* Large Detailed Digital Water-Network Visualization & Layer Controls */}
-        <div className="rounded-3xl glass-panel-elevated border border-[#3289D6]/30 overflow-hidden p-4 sm:p-8 mb-16">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#1E375A]">
+        <div className="rounded-3xl glass-panel-elevated border border-[#3289D6]/30 overflow-hidden p-3.5 sm:p-8 mb-16 w-full max-w-full">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#1E375A] w-full">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-[#42C7B5] block mb-1">
                 Multi-Layer Infrastructure Digital Twin Simulator
@@ -81,14 +81,14 @@ export default function FutureVision() {
             </div>
 
             {/* Layer Toggles */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 max-w-full overflow-x-auto">
               {futureVisionData.networkLayers.map((layer) => {
                 const isActive = activeLayers[layer.id];
                 return (
                   <button
                     key={layer.id}
                     onClick={() => toggleLayer(layer.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                    className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer whitespace-nowrap ${
                       isActive
                         ? 'bg-[#174D78] text-white border border-[#42C7B5] shadow-sm'
                         : 'bg-[#101C2C] text-[#748391] border border-[#1E375A] hover:text-white'
@@ -104,8 +104,8 @@ export default function FutureVision() {
           </div>
 
           {/* Detailed Network SVG Canvas with Layer Toggles applied */}
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-[#0B131E] border border-[#1E375A] overflow-hidden p-4">
-            <svg viewBox="0 0 1000 420" className="w-full h-full object-cover">
+          <div className="relative w-full max-w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-[#0B131E] border border-[#1E375A] overflow-hidden p-3 sm:p-4">
+            <svg viewBox="0 0 1000 420" className="w-full max-w-full h-full object-cover">
               <defs>
                 <pattern id="grid-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
                   <circle cx="2" cy="2" r="1" fill="#1E375A" opacity="0.6" />
@@ -179,11 +179,11 @@ export default function FutureVision() {
         </div>
 
         {/* 5 Future Capabilities Cards - No Numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {futureVisionData.capabilities.map((cap) => (
             <div
               key={cap.title}
-              className="bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] rounded-2xl p-6 transition-all hover:border-[#3289D6]/50 flex flex-col justify-between"
+              className="bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] rounded-2xl p-6 transition-all hover:border-[#3289D6]/50 flex flex-col justify-between w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -217,7 +217,7 @@ export default function FutureVision() {
           ))}
 
           {/* Summary Box */}
-          <div className="bg-gradient-to-br from-[#174D78]/40 to-[#132238] border border-[#3289D6]/30 rounded-2xl p-6 flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-[#174D78]/40 to-[#132238] border border-[#3289D6]/30 rounded-2xl p-6 flex flex-col justify-between w-full">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="p-2.5 rounded-xl bg-[#101C2C] border border-[#1E375A] text-[#42C7B5]">

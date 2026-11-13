@@ -74,16 +74,16 @@ export default function SatelliteNetworkMap({ className = "" }) {
   ];
 
   return (
-    <div className={`relative w-full rounded-2xl overflow-hidden border border-[#1E375A] bg-[#0B131E] select-none ${className}`}>
+    <div className={`relative w-full max-w-full rounded-2xl overflow-hidden border border-[#1E375A] bg-[#0B131E] select-none ${className}`}>
       {/* Satellite Topo Grid Background */}
       <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
       <div className="absolute inset-0 bg-radial from-transparent via-[#0B131E]/40 to-[#0B131E] pointer-events-none" />
 
       {/* Geospatial Map Canvas / SVG */}
-      <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
+      <div className="relative w-full max-w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
         <svg
           viewBox="0 0 920 480"
-          className="w-full h-full object-cover"
+          className="w-full max-w-full h-full object-cover"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -293,7 +293,7 @@ export default function SatelliteNetworkMap({ className = "" }) {
 
         {/* Selected Node Telemetry HUD / Inspector */}
         {selectedNode && (
-          <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm glass-panel-elevated p-4 rounded-xl z-20 animate-fade-in">
+          <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm glass-panel-elevated p-3 sm:p-4 rounded-xl z-20 animate-fade-in max-w-[calc(100%-1rem)] sm:max-w-sm">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div className="flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${selectedNode.status === 'warning' ? 'bg-amber-400 animate-pulse' : 'bg-[#42C7B5]'}`} />
@@ -325,33 +325,33 @@ export default function SatelliteNetworkMap({ className = "" }) {
             </p>
 
             <div className="flex items-center justify-between text-[10px] pt-2 border-t border-[#1E375A]/70 text-[#748391]">
-              <span>Telemetry Status: <strong className="text-white">{selectedNode.level}</strong></span>
-              <span className="text-[#3289D6] font-mono">Live Link OK</span>
+              <span>Status: <strong className="text-white">{selectedNode.level}</strong></span>
+              <span className="text-[#3289D6] font-mono">Link OK</span>
             </div>
           </div>
         )}
 
         {/* Live Network Status Indicator Overlay */}
-        <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2 pointer-events-none">
-          <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-2 text-xs">
-            <span className="w-2 h-2 rounded-full bg-[#42C7B5] animate-pulse" />
-            <span className="font-mono text-[#F3F8FA]">GEOSPATIAL TELEMETRY ACTIVE</span>
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex flex-wrap items-center gap-2 pointer-events-none max-w-[calc(100%-1.5rem)]">
+          <div className="glass-panel px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#42C7B5] animate-pulse flex-shrink-0" />
+            <span className="font-mono text-[#F3F8FA] truncate">TELEMETRY ACTIVE</span>
           </div>
           <div className="hidden sm:flex glass-panel px-3 py-1.5 rounded-full items-center gap-2 text-xs text-[#748391]">
             <Radio className="w-3.5 h-3.5 text-[#3289D6]" />
-            <span>Click any node to inspect telemetry</span>
+            <span>Click any node to inspect</span>
           </div>
         </div>
 
         {/* Legend */}
-        <div className="absolute bottom-4 right-4 hidden md:flex items-center gap-3 glass-panel px-3 py-1.5 rounded-lg text-[11px] text-[#748391]">
+        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 hidden md:flex items-center gap-3 glass-panel px-3 py-1.5 rounded-lg text-[11px] text-[#748391]">
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#42C7B5]" />
             <span>Nominal Flow</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <span>Flow Anomaly Flagged</span>
+            <span>Anomaly Flagged</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-0.5 bg-[#3289D6]" />

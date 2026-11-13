@@ -95,13 +95,13 @@ export default function PilotForm() {
   };
 
   return (
-    <section id="pilot-access" className="relative py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 scroll-mt-20">
+    <section id="pilot-access" className="relative w-full max-w-full py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 scroll-mt-20 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
       {/* Atmospheric glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-[#174D78]/20 via-[#3289D6]/15 to-[#42C7B5]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[500px] bg-gradient-to-r from-[#174D78]/20 via-[#3289D6]/15 to-[#42C7B5]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -118,10 +118,10 @@ export default function PilotForm() {
         </div>
 
         {/* Form Container */}
-        <div className="glass-panel-elevated rounded-3xl border border-[#3289D6]/35 p-6 sm:p-10 shadow-2xl relative">
+        <div className="glass-panel-elevated rounded-3xl border border-[#3289D6]/35 p-5 sm:p-10 shadow-2xl relative w-full max-w-full">
           {isSubmitted ? (
             /* Confirmation Success State */
-            <div className="text-center py-10 sm:py-16 space-y-6 animate-fade-in">
+            <div className="text-center py-10 sm:py-16 space-y-6 animate-fade-in w-full">
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-[#42C7B5] flex items-center justify-center mx-auto border border-[#42C7B5]/40 shadow-lg">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
@@ -138,7 +138,7 @@ export default function PilotForm() {
                 </p>
               </div>
 
-              <div className="max-w-md mx-auto p-4 rounded-xl bg-[#101C2C] border border-[#1E375A] text-left text-xs space-y-1.5 text-[#748391]">
+              <div className="max-w-md mx-auto p-4 rounded-xl bg-[#101C2C] border border-[#1E375A] text-left text-xs space-y-1.5 text-[#748391] w-full">
                 <div className="flex justify-between">
                   <span>Organization:</span>
                   <span className="text-white font-medium">{formData.organization}</span>
@@ -165,10 +165,10 @@ export default function PilotForm() {
             </div>
           ) : (
             /* Active Application Form */
-            <form onSubmit={handleSubmit} noValidate className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} noValidate className="space-y-6 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full">
                 {/* Full Name */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="fullName" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Full Name <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -192,7 +192,7 @@ export default function PilotForm() {
                 </div>
 
                 {/* Work Email */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="workEmail" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Work Email <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -216,7 +216,7 @@ export default function PilotForm() {
                 </div>
 
                 {/* Organization */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="organization" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Organization <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -240,7 +240,7 @@ export default function PilotForm() {
                 </div>
 
                 {/* Organization Type */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="organizationType" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Organization Type <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -269,7 +269,7 @@ export default function PilotForm() {
                 </div>
 
                 {/* Role / Position */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="role" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Role / Position <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -293,7 +293,7 @@ export default function PilotForm() {
                 </div>
 
                 {/* Country or Operating Region */}
-                <div>
+                <div className="w-full">
                   <label htmlFor="country" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                     Country or Operating Region <span className="text-[#42C7B5]">*</span>
                   </label>
@@ -318,7 +318,7 @@ export default function PilotForm() {
               </div>
 
               {/* Approximate Infrastructure Scale */}
-              <div>
+              <div className="w-full">
                 <label htmlFor="scale" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                   Approximate Infrastructure Scale <span className="text-[#42C7B5]">*</span>
                 </label>
@@ -347,7 +347,7 @@ export default function PilotForm() {
               </div>
 
               {/* Infrastructure Challenge */}
-              <div>
+              <div className="w-full">
                 <label htmlFor="challenge" className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-2">
                   What water infrastructure challenge are you trying to solve? <span className="text-[#42C7B5]">*</span>
                 </label>
@@ -371,11 +371,11 @@ export default function PilotForm() {
               </div>
 
               {/* Submit Button & Subtext */}
-              <div className="pt-2 space-y-4">
+              <div className="pt-2 space-y-4 w-full">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-[#174D78] via-[#3289D6] to-[#42C7B5] hover:opacity-95 shadow-xl shadow-[#3289D6]/25 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#174D78] via-[#3289D6] to-[#42C7B5] hover:opacity-95 shadow-xl shadow-[#3289D6]/25 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
@@ -396,7 +396,7 @@ export default function PilotForm() {
               </div>
 
               {/* Privacy Notice Card */}
-              <div className="mt-6 pt-4 border-t border-[#1E375A]/60 flex items-start gap-3 bg-[#101C2C]/60 p-4 rounded-xl border border-[#1E375A]">
+              <div className="mt-6 pt-4 border-t border-[#1E375A]/60 flex items-start gap-3 bg-[#101C2C]/60 p-3.5 sm:p-4 rounded-xl border border-[#1E375A] w-full">
                 <Lock className="w-4 h-4 text-[#42C7B5] flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-[#748391] leading-relaxed">
                   <strong className="text-[#F3F8FA]">Privacy & Infrastructure Security:</strong> {pilotFormData.privacyNotice}

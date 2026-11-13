@@ -24,18 +24,40 @@
 @layer base {
   * {
     border-color: #1E375A;
+    box-sizing: border-box;
   }
   
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+  }
+
   body {
     background-color: #101C2C;
     color: #F3F8FA;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
   }
   
+  #root {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', sans-serif;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+  }
+
+  p, span, a, button {
+    overflow-wrap: break-word;
   }
 }
 
@@ -120,4 +142,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3289D6;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -14,11 +14,11 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#101C2C] text-[#F3F8FA] selection:bg-[#3289D6] selection:text-white font-['Inter',sans-serif]">
+    <div className="min-h-screen bg-[#101C2C] text-[#F3F8FA] selection:bg-[#3289D6] selection:text-white font-['Inter',sans-serif] w-full max-w-full overflow-x-hidden relative">
       {/* 01. Fixed Navigation Header */}
       <Navbar />
 
-      <main id="main-content">
+      <main id="main-content" className="w-full max-w-full overflow-x-hidden relative">
         {/* 02. Hero Section with Geospatial Dashboard Mockup */}
         <Hero />
 

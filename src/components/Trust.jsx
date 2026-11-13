@@ -32,10 +32,10 @@ export default function Trust() {
   const sample = trustData.sampleAssetTelemetry;
 
   return (
-    <section id="trust" className="relative py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60">
+    <section id="trust" className="relative w-full max-w-full py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -52,11 +52,11 @@ export default function Trust() {
         </div>
 
         {/* 4 Trust Principles Grid - No Numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 w-full">
           {trustData.principles.map((p, idx) => (
             <div
               key={p.title}
-              className="bg-[#132238]/60 border border-[#1E375A] hover:border-[#3289D6]/50 rounded-2xl p-6 transition-all group flex flex-col justify-between"
+              className="bg-[#132238]/60 border border-[#1E375A] hover:border-[#3289D6]/50 rounded-2xl p-6 transition-all group flex flex-col justify-between w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -92,82 +92,82 @@ export default function Trust() {
         </div>
 
         {/* Example Transparent Telemetry Panel: Clear Distinctions between Measured, Estimated & AI Assessment */}
-        <div className="max-w-4xl mx-auto rounded-3xl glass-panel-elevated border border-[#3289D6]/30 p-6 sm:p-8 shadow-2xl">
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-[#1E375A]">
+        <div className="max-w-4xl mx-auto rounded-3xl glass-panel-elevated border border-[#3289D6]/30 p-4 sm:p-8 shadow-2xl w-full max-w-full">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-[#1E375A] w-full">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#42C7B5] animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#42C7B5] animate-pulse flex-shrink-0" />
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-[#748391] block">
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#748391] block">
                   Auditable Telemetry Inspector Panel
                 </span>
-                <h4 className="text-lg sm:text-xl font-bold font-['Manrope'] text-white">
+                <h4 className="text-base sm:text-xl font-bold font-['Manrope'] text-white">
                   {sample.assetName}
                 </h4>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#101C2C] text-[#42C7B5] border border-[#1E375A]">
+              <span className="text-[10px] sm:text-xs font-mono px-3 py-1 rounded-full bg-[#101C2C] text-[#42C7B5] border border-[#1E375A]">
                 ASSET: {sample.assetId}
               </span>
             </div>
           </div>
 
           {/* Telemetry Detail Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-6 w-full">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Measurement Type</span>
-              <span className="text-sm font-semibold text-white block">{sample.measurementType}</span>
+              <span className="text-xs sm:text-sm font-semibold text-white block truncate">{sample.measurementType}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-[#174D78] text-[#42C7B5]">
                 Direct Hydrostatic
               </span>
             </div>
 
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Direct Sensor Value</span>
-              <span className="text-base font-mono font-bold text-white block">{sample.measuredValue}</span>
+              <span className="text-sm sm:text-base font-mono font-bold text-white block">{sample.measuredValue}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
                 Directly Measured
               </span>
             </div>
 
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Observation Timestamp</span>
-              <span className="text-xs font-mono font-medium text-white block">{sample.observationTimestamp}</span>
+              <span className="text-xs font-mono font-medium text-white block break-words">{sample.observationTimestamp}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-[#182B46] text-[#3289D6]">
-                UTC Atomic NTP Synced
+                UTC Atomic Synced
               </span>
             </div>
 
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Verified Data Source</span>
-              <span className="text-xs font-semibold text-white block">{sample.dataSource}</span>
+              <span className="text-xs font-semibold text-white block truncate">{sample.dataSource}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-[#132238] text-[#748391]">
-                RTU Device Authenticated
+                RTU Authenticated
               </span>
             </div>
 
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Monitoring Status</span>
-              <span className="text-sm font-mono font-semibold text-[#42C7B5] block">{sample.monitoringStatus}</span>
+              <span className="text-xs sm:text-sm font-mono font-semibold text-[#42C7B5] block">{sample.monitoringStatus}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-[#174D78]/70 text-[#42C7B5]">
                 Zero Packet Loss
               </span>
             </div>
 
-            <div className="bg-[#101C2C] p-4 rounded-xl border border-[#1E375A]">
+            <div className="bg-[#101C2C] p-3.5 sm:p-4 rounded-xl border border-[#1E375A]">
               <span className="text-[10px] font-mono uppercase text-[#748391] block mb-1">Review & Oversight</span>
-              <span className="text-sm font-semibold text-amber-300 block">{sample.reviewStatus}</span>
+              <span className="text-xs sm:text-sm font-semibold text-amber-300 block">{sample.reviewStatus}</span>
               <span className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/20 text-amber-300">
-                Operator Action Required
+                Action Required
               </span>
             </div>
           </div>
 
           {/* Clear Distinction Banner: Measured vs AI Assessment */}
-          <div className="bg-[#101C2C] p-4 rounded-xl border border-[#3289D6]/40">
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#3289D6]" />
+          <div className="bg-[#101C2C] p-4 rounded-xl border border-[#3289D6]/40 w-full">
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span className="w-2 h-2 rounded-full bg-[#3289D6] flex-shrink-0" />
               <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#3289D6]">
                 AI-Generated Algorithmic Assessment (Probabilistic Hypothesis)
               </span>

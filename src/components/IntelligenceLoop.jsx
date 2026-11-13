@@ -15,24 +15,24 @@ export default function IntelligenceLoop() {
 
   const getStageIcon = (id) => {
     switch (id) {
-      case "01": return <Radio className="w-5 h-5 text-[#42C7B5]" />;
-      case "02": return <TrendingUp className="w-5 h-5 text-[#3289D6]" />;
-      case "03": return <Cpu className="w-5 h-5 text-[#42C7B5]" />;
-      case "04": return <CheckCircle2 className="w-5 h-5 text-[#3289D6]" />;
-      default: return <Sparkles className="w-5 h-5 text-[#42C7B5]" />;
+      case "01": return <Radio className="w-6 h-6 text-[#42C7B5]" />;
+      case "02": return <TrendingUp className="w-6 h-6 text-[#3289D6]" />;
+      case "03": return <Cpu className="w-6 h-6 text-[#42C7B5]" />;
+      case "04": return <CheckCircle2 className="w-6 h-6 text-[#3289D6]" />;
+      default: return <Sparkles className="w-6 h-6 text-[#42C7B5]" />;
     }
   };
 
   const current = intelligenceLoopData.stages[activeStage];
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 overflow-hidden">
+    <section className="relative w-full max-w-full py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
       {/* Subtle circular pulse glow in background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#174D78]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[600px] h-[90vw] max-h-[600px] bg-[#174D78]/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -49,20 +49,20 @@ export default function IntelligenceLoop() {
         </div>
 
         {/* Circular / Connected Horizontal Intelligence Diagram - No Numbering */}
-        <div className="mb-14">
-          {/* Loop Cycle Bar: Connect → Monitor → Understand → Improve → Connect */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8">
+        <div className="mb-14 w-full">
+          {/* Loop Cycle Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 w-full">
             {intelligenceLoopData.stages.map((stage, idx) => (
               <div key={stage.name} className="flex items-center">
                 <button
                   onClick={() => setActiveStage(idx)}
-                  className={`flex items-center gap-2.5 px-4 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 border cursor-pointer ${
+                  className={`flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 border cursor-pointer ${
                     activeStage === idx
                       ? 'bg-gradient-to-r from-[#174D78] to-[#3289D6] text-white border-[#42C7B5] shadow-lg shadow-[#3289D6]/20 scale-105'
                       : 'bg-[#132238] text-[#748391] border-[#1E375A] hover:text-white hover:border-[#3289D6]/40'
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full ${activeStage === idx ? 'bg-[#42C7B5] animate-ping' : 'bg-[#748391]'}`} />
+                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${activeStage === idx ? 'bg-[#42C7B5] animate-ping' : 'bg-[#748391]'}`} />
                   <span>{stage.name}</span>
                 </button>
 
@@ -81,14 +81,14 @@ export default function IntelligenceLoop() {
           </div>
 
           {/* Central Active Layer Inspector Card */}
-          <div className="max-w-4xl mx-auto glass-panel-elevated p-6 sm:p-10 rounded-3xl border border-[#3289D6]/30">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div className="max-w-4xl mx-auto glass-panel-elevated p-5 sm:p-10 rounded-3xl border border-[#3289D6]/30 w-full max-w-full">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center w-full">
               {/* Left Column: Stage Detail */}
               <div className="md:col-span-7 space-y-4">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-wrap">
                   <span className="text-xs font-mono uppercase px-3 py-1 rounded-full bg-[#101C2C] text-[#42C7B5] border border-[#1E375A] flex items-center gap-1.5">
                     <RotateCw className="w-3.5 h-3.5 text-[#3289D6]" />
-                    Continuous Intelligence Cycle
+                    Continuous Cycle
                   </span>
                   <span className="text-xs font-mono text-[#748391]">
                     Stage: {current.name}
@@ -99,7 +99,7 @@ export default function IntelligenceLoop() {
                   {current.layer}
                 </h3>
 
-                <p className="text-base text-[#94A3B8] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed">
                   {current.detail}
                 </p>
 
@@ -111,7 +111,7 @@ export default function IntelligenceLoop() {
                     {current.metrics.map((metric, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 rounded-lg text-xs font-mono bg-[#101C2C] text-[#F3F8FA] border border-[#1E375A]"
+                        className="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-mono bg-[#101C2C] text-[#F3F8FA] border border-[#1E375A]"
                       >
                         {metric}
                       </span>
@@ -121,7 +121,7 @@ export default function IntelligenceLoop() {
               </div>
 
               {/* Right Column: Mini Interactive Architecture Graphic */}
-              <div className="md:col-span-5 bg-[#0B131E] rounded-2xl p-6 border border-[#1E375A] relative flex flex-col items-center justify-center text-center">
+              <div className="md:col-span-5 bg-[#0B131E] rounded-2xl p-5 sm:p-6 border border-[#1E375A] relative flex flex-col items-center justify-center text-center w-full">
                 <div className="p-4 rounded-2xl bg-[#132238] border border-[#3289D6]/40 mb-4 text-[#42C7B5] shadow-inner">
                   {getStageIcon(current.id)}
                 </div>
@@ -143,12 +143,12 @@ export default function IntelligenceLoop() {
         </div>
 
         {/* 4 Cards Overview Grid - No Numbering, With Icons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
           {intelligenceLoopData.stages.map((stage, idx) => (
             <div
               key={stage.name}
               onClick={() => setActiveStage(idx)}
-              className={`p-5 rounded-2xl cursor-pointer transition-all border ${
+              className={`p-5 rounded-2xl cursor-pointer transition-all border w-full ${
                 activeStage === idx
                   ? 'bg-[#182B46] border-[#42C7B5] shadow-md'
                   : 'bg-[#132238]/50 border-[#1E375A] hover:bg-[#182B46]/60'

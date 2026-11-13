@@ -9,10 +9,10 @@ export default function FinalCTA() {
   };
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 overflow-hidden">
+    <section className="relative py-24 sm:py-32 bg-[#101C2C] border-t border-[#1E375A]/60 w-full max-w-full overflow-hidden">
       {/* Background Radiance & Contours */}
       <div className="absolute inset-0 tech-grid opacity-20 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-gradient-to-r from-[#174D78]/30 via-[#3289D6]/20 to-[#42C7B5]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[850px] h-[550px] bg-gradient-to-r from-[#174D78]/30 via-[#3289D6]/20 to-[#42C7B5]/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-6">

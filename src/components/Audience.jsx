@@ -36,10 +36,10 @@ export default function Audience() {
   };
 
   return (
-    <section id="solutions" className="relative py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60">
+    <section id="solutions" className="relative w-full max-w-full py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -55,18 +55,18 @@ export default function Audience() {
           </p>
 
           {/* Regional Market Focus Banner */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#132238]/80 border border-[#3289D6]/30 text-xs text-[#F3F8FA]">
-            <MapPin className="w-4 h-4 text-[#42C7B5]" />
-            <span>Target Deployment Focus: <strong>Nigeria & Regional Infrastructure Networks</strong></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#132238]/80 border border-[#3289D6]/30 text-xs text-[#F3F8FA] max-w-[95%]">
+            <MapPin className="w-4 h-4 text-[#42C7B5] flex-shrink-0" />
+            <span className="truncate">Target Focus: <strong>Nigeria & Regional Infrastructure Networks</strong></span>
           </div>
         </div>
 
         {/* 6 Audience Cards Grid - No Numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
           {audienceData.audiences.map((audience, idx) => (
             <div
               key={audience.title}
-              className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#42C7B5]/50 rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl"
+              className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#42C7B5]/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
@@ -91,10 +91,10 @@ export default function Audience() {
               </div>
 
               <div className="pt-4 border-t border-[#1E375A]/60 flex items-center justify-between text-xs">
-                <span className="text-[#748391]">Key Operational Objective</span>
-                <span className="font-mono text-[#42C7B5] font-medium text-right max-w-[60%] truncate flex items-center gap-1">
+                <span className="text-[#748391]">Key Objective</span>
+                <span className="font-mono text-[#42C7B5] font-medium text-right max-w-[65%] truncate flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#3289D6] flex-shrink-0" />
-                  <span>{audience.focus}</span>
+                  <span className="truncate">{audience.focus}</span>
                 </span>
               </div>
             </div>

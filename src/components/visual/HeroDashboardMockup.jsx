@@ -13,24 +13,24 @@ export default function HeroDashboardMockup() {
   const [activeView, setActiveView] = useState('overview');
 
   return (
-    <div className="relative w-full rounded-2xl glass-panel-elevated p-3 sm:p-5 text-left border border-[#3289D6]/30 overflow-hidden shadow-2xl">
+    <div className="relative w-full max-w-full rounded-2xl glass-panel-elevated p-3 sm:p-5 text-left border border-[#3289D6]/30 overflow-hidden shadow-2xl">
       {/* Top Header of the Mockup Interface */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-[#1E375A]">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-4 border-b border-[#1E375A] w-full max-w-full">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#101C2C] border border-[#1E375A]">
             <span className="w-2 h-2 rounded-full bg-[#42C7B5] animate-pulse" />
             <span className="text-xs font-mono font-semibold text-white tracking-wide">AQUORA INTELLIGENCE</span>
           </div>
-          <span className="text-xs font-mono text-[#748391] hidden sm:inline">
+          <span className="text-[11px] sm:text-xs font-mono text-[#748391] hidden sm:inline">
             ZONE: WEST-AFRICA-METRO-01
           </span>
         </div>
 
         {/* Views switcher inside dashboard */}
-        <div className="flex items-center gap-1 bg-[#101C2C] p-1 rounded-lg border border-[#1E375A] text-xs">
+        <div className="flex items-center gap-1 bg-[#101C2C] p-1 rounded-lg border border-[#1E375A] text-xs max-w-full overflow-x-auto scrollbar-none w-full sm:w-auto">
           <button
             onClick={() => setActiveView('overview')}
-            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+            className={`px-2.5 sm:px-3 py-1 rounded-md font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
               activeView === 'overview'
                 ? 'bg-[#174D78] text-white shadow-sm'
                 : 'text-[#748391] hover:text-white'
@@ -40,7 +40,7 @@ export default function HeroDashboardMockup() {
           </button>
           <button
             onClick={() => setActiveView('monitoring')}
-            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+            className={`px-2.5 sm:px-3 py-1 rounded-md font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
               activeView === 'monitoring'
                 ? 'bg-[#174D78] text-white shadow-sm'
                 : 'text-[#748391] hover:text-white'
@@ -50,7 +50,7 @@ export default function HeroDashboardMockup() {
           </button>
           <button
             onClick={() => setActiveView('telemetry')}
-            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+            className={`px-2.5 sm:px-3 py-1 rounded-md font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
               activeView === 'telemetry'
                 ? 'bg-[#174D78] text-white shadow-sm'
                 : 'text-[#748391] hover:text-white'
@@ -60,16 +60,16 @@ export default function HeroDashboardMockup() {
           </button>
         </div>
 
-        <div className="hidden lg:flex items-center gap-2 text-xs font-mono text-[#42C7B5]">
+        <div className="hidden lg:flex items-center gap-2 text-xs font-mono text-[#42C7B5] flex-shrink-0">
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Telemetric Integrity: 99.8%</span>
         </div>
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start w-full max-w-full">
         {/* Left Column: Network Overview Stats */}
-        <div className="lg:col-span-3 space-y-3">
+        <div className="lg:col-span-3 space-y-3 w-full max-w-full">
           <div className="bg-[#101C2C]/80 p-3.5 rounded-xl border border-[#1E375A]">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#748391]">Network Status</span>
@@ -131,24 +131,24 @@ export default function HeroDashboardMockup() {
         </div>
 
         {/* Center Visual: The Interactive Map */}
-        <div className="lg:col-span-6 space-y-3">
+        <div className="lg:col-span-6 space-y-3 w-full max-w-full overflow-hidden">
           <SatelliteNetworkMap />
           
-          <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-lg bg-[#101C2C]/60 border border-[#1E375A] text-[11px]">
-            <span className="text-[#748391]">
-              Hydraulic Model: <strong className="text-white">EPANET Calibrated Core</strong>
+          <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 rounded-lg bg-[#101C2C]/60 border border-[#1E375A] text-[11px] w-full max-w-full">
+            <span className="text-[#748391] truncate">
+              Hydraulic Model: <strong className="text-white">EPANET Core</strong>
             </span>
             <span className="font-mono text-[#3289D6]">
               Packet latency: 42ms
             </span>
             <span className="text-[#42C7B5]">
-              AI Anomaly Engine: Active
+              AI Anomaly: Active
             </span>
           </div>
         </div>
 
         {/* Right Column: Operational Indicators */}
-        <div className="lg:col-span-3 space-y-3">
+        <div className="lg:col-span-3 space-y-3 w-full max-w-full">
           <div className="bg-[#101C2C]/80 p-3.5 rounded-xl border border-[#1E375A]">
             <div className="flex items-center justify-between mb-1">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#748391]">System Flow Rate</span>
@@ -212,13 +212,13 @@ export default function HeroDashboardMockup() {
       </div>
 
       {/* Mandatory Illustrative Notice Footer */}
-      <div className="mt-4 pt-3 border-t border-[#1E375A]/70 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#748391]">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+      <div className="mt-4 pt-3 border-t border-[#1E375A]/70 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] text-[#748391] w-full max-w-full">
+        <div className="flex items-start sm:items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1 sm:mt-0 flex-shrink-0" />
           <span className="font-mono text-amber-300/90 font-medium">NOTICE: Illustrative dashboard visualization.</span>
-          <span>Physical water infrastructure monitoring requires verified sensor hardware and operational telemetry integration.</span>
+          <span className="hidden md:inline">Physical telemetry requires verified hardware integration.</span>
         </div>
-        <div className="font-mono text-[10px] text-[#748391]">
+        <div className="font-mono text-[10px] text-[#748391] flex-shrink-0">
           SYSTEM MODEL: V2.4-SIM
         </div>
       </div>

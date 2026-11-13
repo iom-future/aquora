@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden max-w-full">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#101C2C" />
     
     <title>Aquora | AI-Powered Water Infrastructure Intelligence</title>
@@ -16,11 +16,13 @@
     <meta property="og:title" content="Aquora | AI-Powered Water Infrastructure Intelligence" />
     <meta property="og:description" content="Every Drop. Better Understood. Turning water infrastructure data into actionable intelligence for resilient water systems." />
     <meta property="og:site_name" content="Aquora" />
+    <meta property="og:image" content="/og-preview.svg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Aquora | AI-Powered Water Infrastructure Intelligence" />
     <meta name="twitter:description" content="Every Drop. Better Understood. AI-powered water infrastructure intelligence platform." />
+    <meta name="twitter:image" content="/og-preview.svg" />
     
     <!-- Google Fonts: Manrope & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,8 +52,8 @@
       }
     </script>
   </head>
-  <body class="bg-[#101C2C] text-[#F3F8FA] font-['Inter',sans-serif] antialiased selection:bg-[#3289D6] selection:text-white">
-    <div id="root"></div>
+  <body class="bg-[#101C2C] text-[#F3F8FA] font-['Inter',sans-serif] antialiased selection:bg-[#3289D6] selection:text-white overflow-x-hidden max-w-full w-full">
+    <div id="root" class="overflow-x-hidden max-w-full w-full"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -37,10 +37,10 @@ export default function Features() {
   };
 
   return (
-    <section id="platform" className="relative py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60">
+    <section id="platform" className="relative w-full max-w-full py-24 sm:py-32 bg-[#0B131E] border-t border-[#1E375A]/60 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132238] border border-[#1E375A] text-xs font-mono tracking-widest text-[#42C7B5] uppercase mb-4">
@@ -57,11 +57,11 @@ export default function Features() {
         </div>
 
         {/* 6 Capabilities Cards Grid - No Numbering */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
           {featuresData.features.map((feature) => (
             <div
               key={feature.title}
-              className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#3289D6]/60 rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl"
+              className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#3289D6]/60 rounded-2xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
