@@ -3,7 +3,8 @@ import {
   FileCheck, 
   Lock, 
   ShieldCheck, 
-  UserCheck 
+  UserCheck,
+  CheckCircle2
 } from 'lucide-react';
 import { trustData } from '../data/content';
 
@@ -15,6 +16,16 @@ export default function Trust() {
       case 2: return <UserCheck className="w-6 h-6 text-[#3289D6]" />;
       case 3: return <Lock className="w-6 h-6 text-[#42C7B5]" />;
       default: return <ShieldCheck className="w-6 h-6 text-[#3289D6]" />;
+    }
+  };
+
+  const getPrincipleBadge = (index) => {
+    switch (index) {
+      case 0: return "Audited Telemetry";
+      case 1: return "Traceable Origins";
+      case 2: return "Human In Loop";
+      case 3: return "Access Governance";
+      default: return "Core Standard";
     }
   };
 
@@ -40,7 +51,7 @@ export default function Trust() {
           </p>
         </div>
 
-        {/* 4 Trust Principles Grid */}
+        {/* 4 Trust Principles Grid - No Numbering */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {trustData.principles.map((p, idx) => (
             <div
@@ -48,13 +59,21 @@ export default function Trust() {
               className="bg-[#132238]/60 border border-[#1E375A] hover:border-[#3289D6]/50 rounded-2xl p-6 transition-all group flex flex-col justify-between"
             >
               <div>
-                <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] w-fit mb-4 group-hover:scale-105 transition-transform">
-                  {getPrincipleIcon(idx)}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] w-fit group-hover:scale-105 transition-transform shadow-sm">
+                    {getPrincipleIcon(idx)}
+                  </div>
+                  <span className="text-xs font-mono text-[#42C7B5] px-2.5 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                    {getPrincipleBadge(idx)}
+                  </span>
                 </div>
 
-                <h3 className="text-lg font-bold font-['Manrope'] text-white mb-2 group-hover:text-[#F3F8FA]">
-                  {p.title}
-                </h3>
+                <div className="mb-2">
+                  <h3 className="text-lg font-bold font-['Manrope'] text-white group-hover:text-[#F3F8FA]">
+                    {p.title}
+                  </h3>
+                </div>
 
                 <p className="text-sm text-[#748391] group-hover:text-[#94A3B8] leading-relaxed">
                   {p.description}
@@ -62,8 +81,11 @@ export default function Trust() {
               </div>
 
               <div className="mt-6 pt-3 border-t border-[#1E375A]/60 flex items-center justify-between text-[11px] text-[#748391]">
-                <span>Standard</span>
-                <span className="font-mono text-[#42C7B5]">Verified</span>
+                <span>Operational Trust</span>
+                <span className="font-mono text-[#42C7B5] flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#3289D6]" />
+                  <span>Verified Standard</span>
+                </span>
               </div>
             </div>
           ))}
@@ -86,7 +108,7 @@ export default function Trust() {
 
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#101C2C] text-[#42C7B5] border border-[#1E375A]">
-                ASSET ID: {sample.assetId}
+                ASSET: {sample.assetId}
               </span>
             </div>
           </div>

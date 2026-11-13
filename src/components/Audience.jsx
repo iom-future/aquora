@@ -5,7 +5,8 @@ import {
   Home, 
   Landmark, 
   MapPin, 
-  Network 
+  Network,
+  CheckCircle2
 } from 'lucide-react';
 import { audienceData } from '../data/content';
 
@@ -19,6 +20,18 @@ export default function Audience() {
       case 4: return <Landmark className="w-6 h-6 text-[#3289D6]" />;
       case 5: return <Network className="w-6 h-6 text-[#42C7B5]" />;
       default: return <Building2 className="w-6 h-6 text-[#3289D6]" />;
+    }
+  };
+
+  const getAudienceTag = (index) => {
+    switch (index) {
+      case 0: return "Municipal Supply";
+      case 1: return "Industrial Circuit";
+      case 2: return "Commercial Estate";
+      case 3: return "Treatment Facility";
+      case 4: return "Civic Authority";
+      case 5: return "Infrastructure Fleet";
+      default: return "Water Operator";
     }
   };
 
@@ -48,7 +61,7 @@ export default function Audience() {
           </div>
         </div>
 
-        {/* 6 Audience Cards Grid */}
+        {/* 6 Audience Cards Grid - No Numbering */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {audienceData.audiences.map((audience, idx) => (
             <div
@@ -57,17 +70,20 @@ export default function Audience() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform shadow-sm">
                     {getAudienceIcon(idx)}
                   </div>
-                  <span className="text-xs font-mono text-[#748391] px-2.5 py-1 rounded bg-[#101C2C] border border-[#1E375A]">
-                    SECTOR 0{idx + 1}
+                  <span className="text-xs font-mono text-[#42C7B5] px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                    {getAudienceTag(idx)}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-['Manrope'] text-white mb-2 group-hover:text-[#F3F8FA]">
-                  {audience.title}
-                </h3>
+                <div className="mb-2">
+                  <h3 className="text-xl font-bold font-['Manrope'] text-white group-hover:text-[#F3F8FA]">
+                    {audience.title}
+                  </h3>
+                </div>
 
                 <p className="text-sm text-[#748391] group-hover:text-[#94A3B8] leading-relaxed mb-6">
                   {audience.description}
@@ -76,8 +92,9 @@ export default function Audience() {
 
               <div className="pt-4 border-t border-[#1E375A]/60 flex items-center justify-between text-xs">
                 <span className="text-[#748391]">Key Operational Objective</span>
-                <span className="font-mono text-[#42C7B5] font-medium text-right max-w-[60%] truncate">
-                  {audience.focus}
+                <span className="font-mono text-[#42C7B5] font-medium text-right max-w-[60%] truncate flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#3289D6] flex-shrink-0" />
+                  <span>{audience.focus}</span>
                 </span>
               </div>
             </div>
@@ -87,4 +104,3 @@ export default function Audience() {
     </section>
   );
 }
-

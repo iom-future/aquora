@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import { 
+  Activity,
+  Compass,
+  Droplets,
+  GitBranch,
+  Layers,
+  Sparkles,
+  Zap
+} from 'lucide-react';
 import { futureVisionData } from '../data/content';
 
 export default function FutureVision() {
@@ -16,6 +24,28 @@ export default function FutureVision() {
       ...prev,
       [layerId]: !prev[layerId]
     }));
+  };
+
+  const getCapabilityIcon = (id) => {
+    switch (id) {
+      case "01": return <Activity className="w-5 h-5 text-[#3289D6]" />;
+      case "02": return <GitBranch className="w-5 h-5 text-[#42C7B5]" />;
+      case "03": return <Droplets className="w-5 h-5 text-[#3289D6]" />;
+      case "04": return <Layers className="w-5 h-5 text-[#42C7B5]" />;
+      case "05": return <Compass className="w-5 h-5 text-[#3289D6]" />;
+      default: return <Sparkles className="w-5 h-5 text-[#42C7B5]" />;
+    }
+  };
+
+  const getCapabilityBadge = (id) => {
+    switch (id) {
+      case "01": return "Predictive Health";
+      case "02": return "Flow Optimization";
+      case "03": return "Quality Synthesis";
+      case "04": return "Digital Twins";
+      case "05": return "Resource Matrix";
+      default: return "Visionary Vector";
+    }
   };
 
   return (
@@ -142,27 +172,36 @@ export default function FutureVision() {
               )}
             </svg>
 
-            {/* Watermark in viewer */}
             <div className="absolute bottom-3 left-4 text-[10px] font-mono text-[#748391] bg-[#101C2C]/80 px-2 py-1 rounded">
               TOPOLOGICAL SCHEMATIC • TOGGLE LAYERS ABOVE
             </div>
           </div>
         </div>
 
-        {/* 5 Future Capabilities Cards */}
+        {/* 5 Future Capabilities Cards - No Numbering */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {futureVisionData.capabilities.map((cap) => (
             <div
-              key={cap.id}
+              key={cap.title}
               className="bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] rounded-2xl p-6 transition-all hover:border-[#3289D6]/50 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-mono font-bold text-[#42C7B5] px-2.5 py-1 rounded bg-[#101C2C] border border-[#1E375A] inline-block mb-3">
-                  ROADMAP {cap.id}
-                </span>
-                <h4 className="text-lg font-bold font-['Manrope'] text-white mb-2">
-                  {cap.title}
-                </h4>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2.5 rounded-xl bg-[#101C2C] border border-[#1E375A] shadow-sm">
+                    {getCapabilityIcon(cap.id)}
+                  </div>
+                  <span className="text-xs font-mono font-medium text-[#42C7B5] px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                    {getCapabilityBadge(cap.id)}
+                  </span>
+                </div>
+
+                <div className="mb-2">
+                  <h4 className="text-lg font-bold font-['Manrope'] text-white">
+                    {cap.title}
+                  </h4>
+                </div>
+
                 <p className="text-sm text-[#748391] leading-relaxed">
                   {cap.description}
                 </p>
@@ -170,7 +209,9 @@ export default function FutureVision() {
 
               <div className="mt-4 pt-3 border-t border-[#1E375A]/60 flex items-center justify-between text-[11px] text-[#748391]">
                 <span>Maturity Phase</span>
-                <span className="font-mono text-[#3289D6]">Phase II Pipeline</span>
+                <span className="font-mono text-[#3289D6] flex items-center gap-1">
+                  <span>Phase II Pipeline</span>
+                </span>
               </div>
             </div>
           ))}
@@ -178,19 +219,28 @@ export default function FutureVision() {
           {/* Summary Box */}
           <div className="bg-gradient-to-br from-[#174D78]/40 to-[#132238] border border-[#3289D6]/30 rounded-2xl p-6 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono font-bold text-[#42C7B5] px-2.5 py-1 rounded bg-[#101C2C] border border-[#1E375A] inline-block mb-3">
-                VISION CRITERIA
-              </span>
-              <h4 className="text-lg font-bold font-['Manrope'] text-white mb-2">
-                Grounded in Ground Truth
-              </h4>
+              <div className="flex items-center justify-between mb-4">
+                <div className="p-2.5 rounded-xl bg-[#101C2C] border border-[#1E375A] text-[#42C7B5]">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-mono font-medium text-[#42C7B5] px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A]">
+                  Ground Truth
+                </span>
+              </div>
+
+              <div className="mb-2">
+                <h4 className="text-lg font-bold font-['Manrope'] text-white">
+                  Evidence-Based Evolution
+                </h4>
+              </div>
+
               <p className="text-sm text-[#94A3B8] leading-relaxed">
                 Capabilities expand as sensor density, operational data history, and verified utility partnerships mature.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#1E375A]/60 flex items-center gap-2 text-xs text-[#42C7B5] font-mono">
-              <Sparkles className="w-4 h-4" />
-              <span>Evidence-based evolution</span>
+              <Zap className="w-4 h-4" />
+              <span>Grounded in physical telemetry</span>
             </div>
           </div>
         </div>

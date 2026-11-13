@@ -1,4 +1,4 @@
-import { AlertOctagon, GitBranch, Layers, DropletOff, AlertTriangle } from 'lucide-react';
+import { AlertOctagon, GitBranch, Layers, DropletOff, AlertTriangle, ArrowUpRight } from 'lucide-react';
 import { problemData } from '../data/content';
 
 export default function Problem() {
@@ -37,7 +37,7 @@ export default function Problem() {
           </p>
         </div>
 
-        {/* 4 Problem Cards Grid */}
+        {/* Problem Cards Grid - No Numbering */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           {problemData.cards.map((card) => (
             <div
@@ -46,17 +46,13 @@ export default function Problem() {
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform shadow-sm">
                     {getIcon(card.id)}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-[#748391] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#101C2C] border border-[#1E375A]">
-                      {card.metricTag}
-                    </span>
-                    <span className="text-sm font-mono font-bold text-[#748391]/60">
-                      {card.id}
-                    </span>
-                  </div>
+                  <span className="text-xs font-mono text-[#42C7B5] uppercase tracking-wider px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                    {card.metricTag}
+                  </span>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 font-['Manrope'] group-hover:text-[#F3F8FA]">
@@ -71,7 +67,10 @@ export default function Problem() {
               {/* Bottom Subtle Pipeline Indicator */}
               <div className="mt-6 pt-4 border-t border-[#1E375A]/50 flex items-center justify-between text-xs text-[#748391]">
                 <span>Operational Impact Area</span>
-                <span className="font-mono text-[#3289D6]">Unverified Distribution Loss</span>
+                <span className="font-mono text-[#3289D6] flex items-center gap-1">
+                  <span>Unverified Distribution Loss</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </span>
               </div>
             </div>
           ))}

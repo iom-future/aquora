@@ -9,7 +9,8 @@ import {
   Gauge, 
   Layers, 
   Wrench, 
-  Zap 
+  Zap,
+  ArrowRight
 } from 'lucide-react';
 import { howItWorksData } from '../data/content';
 import SatelliteNetworkMap from './visual/SatelliteNetworkMap';
@@ -49,28 +50,26 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        {/* 4-Step Architecture Workflow */}
+        {/* 4-Step Architecture Workflow - No Numbering */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {howItWorksData.steps.map((step, idx) => (
             <div
-              key={step.step}
+              key={step.title}
               className="relative bg-[#132238]/60 border border-[#1E375A] rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-[#3289D6]/50 transition-all group"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase px-2.5 py-1 rounded bg-[#101C2C] text-[#42C7B5] border border-[#1E375A]">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform shadow-sm">
+                    {getStepIcon(idx)}
+                  </div>
+                  <span className="text-xs font-mono uppercase px-2.5 py-1 rounded-full bg-[#101C2C] text-[#42C7B5] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
                     {step.badge}
-                  </span>
-                  <span className="text-2xl font-mono font-bold text-[#748391]/40 group-hover:text-[#3289D6] transition-colors">
-                    {step.step}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="p-2 rounded-lg bg-[#101C2C] border border-[#1E375A]">
-                    {getStepIcon(idx)}
-                  </div>
-                  <h3 className="text-xl font-bold font-['Manrope'] text-white">
+                <div className="mb-3">
+                  <h3 className="text-xl font-bold font-['Manrope'] text-white group-hover:text-[#F3F8FA]">
                     {step.title}
                   </h3>
                 </div>
@@ -80,10 +79,13 @@ export default function HowItWorks() {
                 </p>
               </div>
 
-              {/* Step Flow Line */}
+              {/* Step Protocol Line */}
               <div className="mt-6 pt-3 border-t border-[#1E375A]/60 flex items-center justify-between text-[11px] text-[#748391]">
-                <span>Phase {step.step} of 04</span>
-                <span className="font-mono text-[#42C7B5]">Active Protocol</span>
+                <span>Operational Phase</span>
+                <span className="font-mono text-[#42C7B5] flex items-center gap-1">
+                  <span>Continuous Sync</span>
+                  <ArrowRight className="w-3 h-3 text-[#3289D6]" />
+                </span>
               </div>
             </div>
           ))}

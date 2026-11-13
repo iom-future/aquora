@@ -6,7 +6,8 @@ import {
   Gauge, 
   Info, 
   LayoutDashboard, 
-  ShieldAlert 
+  ShieldAlert,
+  CheckCircle2
 } from 'lucide-react';
 import { featuresData } from '../data/content';
 
@@ -20,6 +21,18 @@ export default function Features() {
       case "05": return <ClockArrowUp className="w-6 h-6 text-[#3289D6]" />;
       case "06": return <LayoutDashboard className="w-6 h-6 text-[#42C7B5]" />;
       default: return <Activity className="w-6 h-6 text-[#3289D6]" />;
+    }
+  };
+
+  const getFeatureCategory = (id) => {
+    switch (id) {
+      case "01": return "Leak Anomaly Engine";
+      case "02": return "Hydraulic Telemetry";
+      case "03": return "Asset Monitoring";
+      case "04": return "Quality Analytics";
+      case "05": return "Predictive Insights";
+      case "06": return "Unified Oversight";
+      default: return "Core Capability";
     }
   };
 
@@ -43,26 +56,29 @@ export default function Features() {
           </p>
         </div>
 
-        {/* 6 Capabilities Cards Grid */}
+        {/* 6 Capabilities Cards Grid - No Numbering */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {featuresData.features.map((feature) => (
             <div
-              key={feature.id}
+              key={feature.title}
               className="group relative bg-[#132238]/60 hover:bg-[#182B46]/70 border border-[#1E375A] hover:border-[#3289D6]/60 rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between hover:shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-[#101C2C] border border-[#1E375A] group-hover:scale-105 transition-transform shadow-sm">
                     {getFeatureIcon(feature.id)}
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#748391]/60 px-2.5 py-1 rounded bg-[#101C2C] border border-[#1E375A]">
-                    CAPABILITY {feature.id}
+                  <span className="text-xs font-mono font-medium text-[#42C7B5] px-3 py-1 rounded-full bg-[#101C2C] border border-[#1E375A] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#42C7B5]" />
+                    {getFeatureCategory(feature.id)}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-['Manrope'] text-white mb-2 group-hover:text-[#F3F8FA]">
-                  {feature.title}
-                </h3>
+                <div className="mb-2">
+                  <h3 className="text-xl font-bold font-['Manrope'] text-white group-hover:text-[#F3F8FA]">
+                    {feature.title}
+                  </h3>
+                </div>
 
                 <p className="text-sm text-[#748391] group-hover:text-[#94A3B8] leading-relaxed mb-6">
                   {feature.summary}
@@ -90,7 +106,10 @@ export default function Features() {
               ) : (
                 <div className="mt-4 pt-3 border-t border-[#1E375A]/60 flex items-center justify-between text-[11px] text-[#748391]">
                   <span>Telemetry Integration</span>
-                  <span className="font-mono text-[#3289D6]">Automated Stream</span>
+                  <span className="font-mono text-[#3289D6] flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#42C7B5]" />
+                    <span>Automated Stream</span>
+                  </span>
                 </div>
               )}
             </div>
