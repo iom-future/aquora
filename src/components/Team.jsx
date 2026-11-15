@@ -1,18 +1,34 @@
 import { teamData } from '../data/content';
-import babatundeImg from '../assets/team/babatunde-adeleke.jpg';
-import chiomaImg from '../assets/team/chioma-okonkwo.jpg';
-import olumideImg from '../assets/team/olumide-fashola.jpg';
-import aminaImg from '../assets/team/amina-bello.jpg';
-import chukwumaImg from '../assets/team/chukwuma-eze.jpg';
-import folashadeImg from '../assets/team/folashade-adeyemi.jpg';
+import babatundeWebp from '../assets/team/babatunde-adeleke.webp';
+import chiomaWebp from '../assets/team/chioma-okonkwo.webp';
+import olumideWebp from '../assets/team/olumide-fashola.webp';
+import aminaWebp from '../assets/team/amina-bello.webp';
+import chukwumaWebp from '../assets/team/chukwuma-eze.webp';
+import folashadeWebp from '../assets/team/folashade-adeyemi.webp';
 
-const teamImages = {
-  babatunde: babatundeImg,
-  chioma: chiomaImg,
-  olumide: olumideImg,
-  amina: aminaImg,
-  chukwuma: chukwumaImg,
-  folashade: folashadeImg,
+import babatundeJpg from '../assets/team/babatunde-adeleke.jpg';
+import chiomaJpg from '../assets/team/chioma-okonkwo.jpg';
+import olumideJpg from '../assets/team/olumide-fashola.jpg';
+import aminaJpg from '../assets/team/amina-bello.jpg';
+import chukwumaJpg from '../assets/team/chukwuma-eze.jpg';
+import folashadeJpg from '../assets/team/folashade-adeyemi.jpg';
+
+const teamWebpImages = {
+  babatunde: babatundeWebp,
+  chioma: chiomaWebp,
+  olumide: olumideWebp,
+  amina: aminaWebp,
+  chukwuma: chukwumaWebp,
+  folashade: folashadeWebp,
+};
+
+const teamJpgImages = {
+  babatunde: babatundeJpg,
+  chioma: chiomaJpg,
+  olumide: olumideJpg,
+  amina: aminaJpg,
+  chukwuma: chukwumaJpg,
+  folashade: folashadeJpg,
 };
 
 export default function Team() {
@@ -55,21 +71,25 @@ export default function Team() {
                     {member.initials}
                   </div>
 
-                  <img
-                    src={teamImages[member.id] || member.image}
-                    alt={member.name}
-                    width="1024"
-                    height="1024"
-                    loading="eager"
-                    decoding="async"
-                    className="relative z-1 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 block"
-                    onError={(e) => {
-                      if (!e.currentTarget.dataset.fallback) {
-                        e.currentTarget.dataset.fallback = 'public';
-                        e.currentTarget.src = `./team/${member.id === 'babatunde' ? 'babatunde-adeleke' : member.id === 'chioma' ? 'chioma-okonkwo' : member.id === 'olumide' ? 'olumide-fashola' : member.id === 'amina' ? 'amina-bello' : member.id === 'chukwuma' ? 'chukwuma-eze' : 'folashade-adeyemi'}.jpg`;
-                      }
-                    }}
-                  />
+                  <picture className="relative z-1 w-full h-full block">
+                    <source srcSet={teamWebpImages[member.id]} type="image/webp" />
+                    <img
+                      src={teamJpgImages[member.id] || member.image}
+                      alt={member.name}
+                      width="600"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 block"
+                      onError={(e) => {
+                        if (!e.currentTarget.dataset.fallback) {
+                          e.currentTarget.dataset.fallback = 'public';
+                          e.currentTarget.src = `./team/${member.id === 'babatunde' ? 'babatunde-adeleke' : member.id === 'chioma' ? 'chioma-okonkwo' : member.id === 'olumide' ? 'olumide-fashola' : member.id === 'amina' ? 'amina-bello' : member.id === 'chukwuma' ? 'chukwuma-eze' : 'folashade-adeyemi'}.jpg`;
+                        }
+                      }}
+                    />
+                  </picture>
 
                   {/* Credentials Badge Overlay */}
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none z-10">

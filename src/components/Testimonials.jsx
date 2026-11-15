@@ -1,15 +1,27 @@
 import { Quote, Star, CheckCircle, TrendingUp } from 'lucide-react';
 import { testimonialsData } from '../data/content';
-import kayodeImg from '../assets/testimonials/kayode-balogun.jpg';
-import ngoziImg from '../assets/testimonials/ngozi-adeleke.jpg';
-import ibrahimImg from '../assets/testimonials/ibrahim-sanusi.jpg';
-import hadizaImg from '../assets/testimonials/hadiza-mohammed.jpg';
+import kayodeWebp from '../assets/testimonials/kayode-balogun.webp';
+import ngoziWebp from '../assets/testimonials/ngozi-adeleke.webp';
+import ibrahimWebp from '../assets/testimonials/ibrahim-sanusi.webp';
+import hadizaWebp from '../assets/testimonials/hadiza-mohammed.webp';
 
-const testimonialImages = {
-  t1: kayodeImg,
-  t2: ngoziImg,
-  t3: ibrahimImg,
-  t4: hadizaImg,
+import kayodeJpg from '../assets/testimonials/kayode-balogun.jpg';
+import ngoziJpg from '../assets/testimonials/ngozi-adeleke.jpg';
+import ibrahimJpg from '../assets/testimonials/ibrahim-sanusi.jpg';
+import hadizaJpg from '../assets/testimonials/hadiza-mohammed.jpg';
+
+const testimonialWebpImages = {
+  t1: kayodeWebp,
+  t2: ngoziWebp,
+  t3: ibrahimWebp,
+  t4: hadizaWebp,
+};
+
+const testimonialJpgImages = {
+  t1: kayodeJpg,
+  t2: ngoziJpg,
+  t3: ibrahimJpg,
+  t4: hadizaJpg,
 };
 
 export default function Testimonials() {
@@ -76,21 +88,25 @@ export default function Testimonials() {
                       {item.initials}
                     </div>
 
-                    <img
-                      src={testimonialImages[item.id] || item.image}
-                      alt={item.author}
-                      width="128"
-                      height="128"
-                      loading="eager"
-                      decoding="async"
-                      className="relative z-1 w-full h-full object-cover object-top block"
-                      onError={(e) => {
-                        if (!e.currentTarget.dataset.fallback) {
-                          e.currentTarget.dataset.fallback = 'public';
-                          e.currentTarget.src = item.image;
-                        }
-                      }}
-                    />
+                    <picture className="relative z-1 w-full h-full block">
+                      <source srcSet={testimonialWebpImages[item.id]} type="image/webp" />
+                      <img
+                        src={testimonialJpgImages[item.id] || item.image}
+                        alt={item.author}
+                        width="240"
+                        height="240"
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        className="w-full h-full object-cover object-top block"
+                        onError={(e) => {
+                          if (!e.currentTarget.dataset.fallback) {
+                            e.currentTarget.dataset.fallback = 'public';
+                            e.currentTarget.src = item.image;
+                          }
+                        }}
+                      />
+                    </picture>
                   </div>
 
                   <div className="min-w-0">
