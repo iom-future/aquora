@@ -460,6 +460,8 @@ export const testimonialsData = {
       author: "Engr. Kayode Balogun",
       role: "Director of Water Distribution & Network Operations",
       organization: "Regional Water Corporation (Lagos Metro)",
+      image: "/testimonials/kayode-balogun.jpg",
+      initials: "KB",
       impactMetric: "82% Faster Leak Localization",
       sector: "Municipal Water Utility",
       rating: 5
@@ -470,6 +472,8 @@ export const testimonialsData = {
       author: "Ngozi Adeleke-Peters",
       role: "Head of Infrastructure & Facilities Management",
       organization: "Lekki Peninsula Coastal Estates",
+      image: "/testimonials/ngozi-adeleke.jpg",
+      initials: "NA",
       impactMetric: "Zero Unplanned Pressure Drops",
       sector: "Commercial & Residential Estates",
       rating: 5
@@ -480,6 +484,8 @@ export const testimonialsData = {
       author: "Ibrahim Sanusi, FNSE",
       role: "Chief Plant Engineer",
       organization: "Agro-Allied Industrial Processing Facility (Ogun Corridor)",
+      image: "/testimonials/ibrahim-sanusi.jpg",
+      initials: "IS",
       impactMetric: "₦42M Equipment Downtime Averted",
       sector: "Industrial Processing",
       rating: 5
@@ -490,6 +496,8 @@ export const testimonialsData = {
       author: "Dr. Hadiza Mohammed",
       role: "Principal Infrastructure Consultant",
       organization: "Urban Water Systems Advisory (Abuja FCT)",
+      image: "/testimonials/hadiza-mohammed.jpg",
+      initials: "HM",
       impactMetric: "Passive SCADA Interoperability",
       sector: "Municipal Infrastructure Advisory",
       rating: 5

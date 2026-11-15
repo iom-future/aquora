@@ -45,11 +45,16 @@ export default function Team() {
           {teamData.members.map((member) => (
             <div
               key={member.id}
-              className="group relative rounded-3xl bg-[#F8FAFC] hover:bg-white border border-sky-200/80 hover:border-sky-300 p-6 flex flex-col justify-between shadow-[0_4px_20px_-6px_rgba(2,132,199,0.06)] hover:shadow-[0_16px_36px_-8px_rgba(2,132,199,0.12)] transition-all duration-300 w-full overflow-hidden"
+              className="group relative rounded-3xl bg-[#F8FAFC] hover:bg-white border border-sky-200/80 hover:border-sky-300 p-6 flex flex-col shadow-[0_4px_20px_-6px_rgba(2,132,199,0.06)] hover:shadow-[0_16px_36px_-8px_rgba(2,132,199,0.12)] transition-all duration-300 w-full overflow-hidden"
             >
               <div>
                 {/* Member Portrait Container */}
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden mb-5 bg-slate-100 border border-sky-200 shadow-inner group-hover:scale-[1.01] transition-transform">
+                <div className="relative aspect-square w-full rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-sky-100 to-sky-50 border border-sky-200 shadow-inner group-hover:scale-[1.01] transition-transform">
+                  {/* Fallback initials */}
+                  <div className="absolute inset-0 flex items-center justify-center text-sky-400 font-extrabold text-3xl font-mono select-none">
+                    {member.initials}
+                  </div>
+
                   <img
                     src={teamImages[member.id] || member.image}
                     alt={member.name}
@@ -57,11 +62,11 @@ export default function Team() {
                     height="1024"
                     loading="eager"
                     decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 block"
+                    className="relative z-1 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 block"
                     onError={(e) => {
                       if (!e.currentTarget.dataset.fallback) {
                         e.currentTarget.dataset.fallback = 'public';
-                        e.currentTarget.src = member.image;
+                        e.currentTarget.src = `./team/${member.id === 'babatunde' ? 'babatunde-adeleke' : member.id === 'chioma' ? 'chioma-okonkwo' : member.id === 'olumide' ? 'olumide-fashola' : member.id === 'amina' ? 'amina-bello' : member.id === 'chukwuma' ? 'chukwuma-eze' : 'folashade-adeyemi'}.jpg`;
                       }
                     }}
                   />
@@ -76,24 +81,9 @@ export default function Team() {
 
                 {/* Member Name & Role */}
                 <div className="mb-3">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold font-['Manrope'] text-[#0F172A] group-hover:text-[#0284C7] transition-colors leading-snug">
-                      {member.name}
-                    </h3>
-
-                    {/* LinkedIn Link */}
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-[#0284C7] hover:bg-sky-50 transition-colors flex-shrink-0"
-                      aria-label={`${member.name} LinkedIn Profile`}
-                    >
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66Z" />
-                      </svg>
-                    </a>
-                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold font-['Manrope'] text-[#0F172A] group-hover:text-[#0284C7] transition-colors leading-snug">
+                    {member.name}
+                  </h3>
 
                   <p className="text-xs sm:text-sm font-semibold text-[#0284C7] mt-1">
                     {member.role}
@@ -111,12 +101,6 @@ export default function Team() {
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   {member.bio}
                 </p>
-              </div>
-
-              {/* Bottom Card Footer */}
-              <div className="mt-5 pt-3.5 border-t border-sky-100 flex items-center justify-between text-[11px] text-[#64748B] font-mono">
-                <span>Nigeria Operations</span>
-                <span className="text-[#0284C7] font-semibold">Active Leadership</span>
               </div>
             </div>
           ))}

@@ -1,5 +1,16 @@
 import { Quote, Star, CheckCircle, TrendingUp } from 'lucide-react';
 import { testimonialsData } from '../data/content';
+import kayodeImg from '../assets/testimonials/kayode-balogun.jpg';
+import ngoziImg from '../assets/testimonials/ngozi-adeleke.jpg';
+import ibrahimImg from '../assets/testimonials/ibrahim-sanusi.jpg';
+import hadizaImg from '../assets/testimonials/hadiza-mohammed.jpg';
+
+const testimonialImages = {
+  t1: kayodeImg,
+  t2: ngoziImg,
+  t3: ibrahimImg,
+  t4: hadizaImg,
+};
 
 export default function Testimonials() {
   return (
@@ -56,22 +67,47 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              {/* Author & Organization Info */}
-              <div className="pt-5 border-t border-sky-100 flex items-center justify-between gap-3 flex-wrap">
-                <div>
-                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Manrope'] flex items-center gap-1.5">
-                    <span>{item.author}</span>
-                    <CheckCircle className="w-4 h-4 text-[#0284C7] fill-sky-50" />
-                  </h4>
-                  <p className="text-xs text-[#64748B] mt-0.5 font-medium">
-                    {item.role}
-                  </p>
-                  <p className="text-xs text-[#0284C7] font-semibold mt-0.5">
-                    {item.organization}
-                  </p>
+              {/* Author & Organization Info with Cultural Portrait Avatar */}
+              <div className="pt-5 border-t border-sky-100 flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-sky-200 bg-gradient-to-br from-sky-100 to-sky-50 shadow-sm">
+                    {/* Initials fallback underneath */}
+                    <div className="absolute inset-0 flex items-center justify-center text-sky-600 font-bold text-sm font-mono select-none">
+                      {item.initials}
+                    </div>
+
+                    <img
+                      src={testimonialImages[item.id] || item.image}
+                      alt={item.author}
+                      width="128"
+                      height="128"
+                      loading="eager"
+                      decoding="async"
+                      className="relative z-1 w-full h-full object-cover object-top block"
+                      onError={(e) => {
+                        if (!e.currentTarget.dataset.fallback) {
+                          e.currentTarget.dataset.fallback = 'public';
+                          e.currentTarget.src = item.image;
+                        }
+                      }}
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <h4 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Manrope'] flex items-center gap-1.5 truncate">
+                      <span className="truncate">{item.author}</span>
+                      <CheckCircle className="w-4 h-4 text-[#0284C7] fill-sky-50 flex-shrink-0" />
+                    </h4>
+                    <p className="text-xs text-[#64748B] mt-0.5 font-medium truncate">
+                      {item.role}
+                    </p>
+                    <p className="text-xs text-[#0284C7] font-semibold mt-0.5 truncate">
+                      {item.organization}
+                    </p>
+                  </div>
                 </div>
 
-                <span className="text-[10px] font-mono uppercase px-2.5 py-1 rounded-md bg-slate-100 text-[#475569] border border-slate-200 font-semibold flex-shrink-0">
+                <span className="text-[10px] font-mono uppercase px-2.5 py-1 rounded-md bg-slate-100 text-[#475569] border border-slate-200 font-semibold flex-shrink-0 self-start sm:self-center">
                   {item.sector}
                 </span>
               </div>

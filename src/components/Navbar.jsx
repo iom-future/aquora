@@ -114,11 +114,8 @@ export default function Navbar() {
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] animate-pulse" />
-                    )}
-                    <span>{link.name}</span>
+                  <span className="relative z-10">
+                    {link.name}
                   </span>
                 </a>
               );
@@ -177,9 +174,6 @@ export default function Navbar() {
                     }`}
                   >
                     <span>{link.name}</span>
-                    {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
-                    )}
                   </a>
                 );
               })}
