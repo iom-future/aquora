@@ -85,7 +85,7 @@ export default function Team() {
                       onError={(e) => {
                         if (!e.currentTarget.dataset.fallback) {
                           e.currentTarget.dataset.fallback = 'public';
-                          e.currentTarget.src = `./team/${member.id === 'babatunde' ? 'babatunde-adeleke' : member.id === 'chioma' ? 'chioma-okonkwo' : member.id === 'olumide' ? 'olumide-fashola' : member.id === 'amina' ? 'amina-bello' : member.id === 'chukwuma' ? 'chukwuma-eze' : 'folashade-adeyemi'}.jpg`;
+                          e.currentTarget.src = `${import.meta.env.BASE_URL}team/${member.id === 'babatunde' ? 'babatunde-adeleke' : member.id === 'chioma' ? 'chioma-okonkwo' : member.id === 'olumide' ? 'olumide-fashola' : member.id === 'amina' ? 'amina-bello' : member.id === 'chukwuma' ? 'chukwuma-eze' : 'folashade-adeyemi'}.jpg`;
                         }
                       }}
                     />
