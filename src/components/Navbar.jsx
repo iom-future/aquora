@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import AquoraLogo from './common/AquoraLogo';
 import { navigationLinks } from '../data/content';
@@ -6,11 +6,16 @@ import { navigationLinks } from '../data/content';
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const isClickScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const sectionIds = navigationLinks.map(link => link.href.replace('#', ''));
 
     const handleScroll = () => {
+      // If currently scrolling via a clicked link, prevent indicator from cycling through intermediate links
+      if (isClickScrollingRef.current) return;
+
       // If user reached bottom of page, activate last link (FAQ)
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
         setActiveSection(sectionIds[sectionIds.length - 1]);
@@ -53,24 +58,70 @@ export default function Navbar() {
       setActiveSection(current);
     };
 
+    // Unlock immediately if the user manually scrolls with mouse wheel or touch
+    const handleUserIntervention = () => {
+      if (isClickScrollingRef.current) {
+        isClickScrollingRef.current = false;
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+      }
+    };
+
+    const handleScrollEnd = () => {
+      if (isClickScrollingRef.current) {
+        isClickScrollingRef.current = false;
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+      }
+    };
+
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scrollend', handleScrollEnd, { passive: true });
+    window.addEventListener('wheel', handleUserIntervention, { passive: true });
+    window.addEventListener('touchmove', handleUserIntervention, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scrollend', handleScrollEnd);
+      window.removeEventListener('wheel', handleUserIntervention);
+      window.removeEventListener('touchmove', handleUserIntervention);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   const handleScrollTo = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
     const targetId = href.replace('#', '');
+
+    // Immediately appear on the newly clicked section without cycling through intermediate links
     setActiveSection(targetId);
+    isClickScrollingRef.current = true;
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
     const target = document.querySelector(href);
     if (target) {
       const navHeight = 90;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
+
+      // Release lock after smooth scroll arrives at target
+      scrollTimeoutRef.current = setTimeout(() => {
+        isClickScrollingRef.current = false;
+      }, 900);
+    } else {
+      isClickScrollingRef.current = false;
     }
   };
 
@@ -85,7 +136,14 @@ export default function Navbar() {
             onClick={(e) => {
               e.preventDefault();
               setActiveSection('');
+              isClickScrollingRef.current = true;
+              if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+              }
               window.scrollTo({ top: 0, behavior: 'smooth' });
+              scrollTimeoutRef.current = setTimeout(() => {
+                isClickScrollingRef.current = false;
+              }, 900);
             }}
             className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284C7] rounded-lg flex-shrink-0"
             aria-label="Aquora Home"
