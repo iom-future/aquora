@@ -26,7 +26,7 @@ export default function IntelligenceLoop() {
   const current = intelligenceLoopData.stages[activeStage];
 
   return (
-    <section className="relative w-full max-w-full py-24 sm:py-32 bg-white border-t border-sky-100 overflow-hidden">
+    <section id="technology" className="relative w-full max-w-full py-24 sm:py-32 bg-white border-t border-sky-100 overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
 
       {/* Subtle circular pulse glow in background */}

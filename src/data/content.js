@@ -448,6 +448,128 @@ export const finalCtaContent = {
   supportingLine: "Building a smarter future for water infrastructure."
 };
 
+export const testimonialsData = {
+  eyebrow: "INFRASTRUCTURE PERSPECTIVES",
+  headline: "Trusted by Engineers, Operators, and Utility Leaders.",
+  description: "How water distribution managers and industrial operators understand their networks and optimize operational decisions with Aquora.",
+  testimonials: [
+    {
+      id: "t1",
+      quote: "Before Aquora, tracing sub-surface line leaks across our distribution network took days of manual acoustic probing and guesswork. Having automated night-flow anomaly flags reduced our diagnostic turnaround from 72 hours to under 4 hours.",
+      author: "Engr. Kayode Balogun",
+      role: "Director of Water Distribution & Network Operations",
+      organization: "Regional Water Corporation (Lagos Metro)",
+      impactMetric: "82% Faster Leak Localization",
+      sector: "Municipal Water Utility",
+      rating: 5
+    },
+    {
+      id: "t2",
+      quote: "Managing water supply across a 450-hectare mixed-use residential estate is high-stakes. Aquora gave us the first unified view of booster station head pressures and reservoir drawdown, eliminating midnight supply outages completely.",
+      author: "Ngozi Adeleke-Peters",
+      role: "Head of Infrastructure & Facilities Management",
+      organization: "Lekki Peninsula Coastal Estates",
+      impactMetric: "Zero Unplanned Pressure Drops",
+      sector: "Commercial & Residential Estates",
+      rating: 5
+    },
+    {
+      id: "t3",
+      quote: "In industrial processing, pump cavitation and irregular intake pressures cost millions in replacement equipment. Aquora's hydraulic telemetry flagged micro-pulsations two weeks before pump failure, preventing catastrophic downtime.",
+      author: "Ibrahim Sanusi, FNSE",
+      role: "Chief Plant Engineer",
+      organization: "Agro-Allied Industrial Processing Facility (Ogun Corridor)",
+      impactMetric: "₦42M Equipment Downtime Averted",
+      sector: "Industrial Processing",
+      rating: 5
+    },
+    {
+      id: "t4",
+      quote: "Water loss in municipal distribution networks isn't just an economic drain; it strains urban aquifers. Aquora's intelligence layer integrates seamlessly with our legacy SCADA infrastructure without requiring costly physical overhaul.",
+      author: "Dr. Hadiza Mohammed",
+      role: "Principal Infrastructure Consultant",
+      organization: "Urban Water Systems Advisory (Abuja FCT)",
+      impactMetric: "Passive SCADA Interoperability",
+      sector: "Municipal Infrastructure Advisory",
+      rating: 5
+    }
+  ]
+};
+
+export const teamData = {
+  eyebrow: "MEET THE LEADERSHIP",
+  headline: "Pioneering Climate-Tech for African Water Infrastructure.",
+  description: "An experienced team of hydraulic engineers, data scientists, and utility operators committed to solving Africa's most urgent water distribution challenges.",
+  members: [
+    {
+      id: "babatunde",
+      name: "Dr. Babatunde Adeleke",
+      role: "Co-Founder & Chief Executive Officer",
+      bio: "18+ years in hydraulic engineering and urban water networks. Former Senior Advisor on municipal water distribution and water-loss reduction across West Africa.",
+      image: "/team/babatunde-adeleke.jpg",
+      initials: "BA",
+      credentials: "PhD Hydraulic Eng, FNSE",
+      linkedin: "https://linkedin.com",
+      focus: "Water Network Systems & Utility Strategy"
+    },
+    {
+      id: "chioma",
+      name: "Chioma Okonkwo, MSc",
+      role: "Co-Founder & Chief Technology Officer",
+      bio: "Former Lead IoT Systems Architect at continental telematics firms. Specialist in distributed sensor networks, embedded edge computing, and real-time telemetry processing.",
+      image: "/team/chioma-okonkwo.jpg",
+      initials: "CO",
+      credentials: "MSc Embedded Systems (Imperial)",
+      linkedin: "https://linkedin.com",
+      focus: "IoT Ingestion & Distributed Systems"
+    },
+    {
+      id: "olumide",
+      name: "Engr. Olumide Fashola",
+      role: "Head of Infrastructure Integrations",
+      bio: "22 years leading SCADA implementations, pumping station instrumentation, and pressure management for major Nigerian metropolitan water corporations.",
+      image: "/team/olumide-fashola.jpg",
+      initials: "OF",
+      credentials: "COREN Registered, MNSE",
+      linkedin: "https://linkedin.com",
+      focus: "SCADA & Telemetry Interoperability"
+    },
+    {
+      id: "amina",
+      name: "Amina Bello",
+      role: "Head of Product & Geospatial Systems",
+      bio: "Geographic Information Systems (GIS) pioneer with a focus on hydrological spatial modeling, satellite pipeline overlays, and intuitive operator dashboards.",
+      image: "/team/amina-bello.jpg",
+      initials: "AB",
+      credentials: "BEng Geoinformatics, PMP",
+      linkedin: "https://linkedin.com",
+      focus: "Spatial Network Modeling & UX"
+    },
+    {
+      id: "chukwuma",
+      name: "Chukwuma Eze, PhD",
+      role: "Lead AI & Anomaly Detection Scientist",
+      bio: "Machine learning researcher specializing in hydraulic time-series analysis, signal processing, and Bayesian filtering for predictive pipeline leak detection.",
+      image: "/team/chukwuma-eze.jpg",
+      initials: "CE",
+      credentials: "PhD Signal Processing",
+      linkedin: "https://linkedin.com",
+      focus: "Time-Series Anomaly Modeling"
+    },
+    {
+      id: "folashade",
+      name: "Folashade Adeyemi",
+      role: "Head of Operations & Pilot Programmes",
+      bio: "Experienced infrastructure project director driving utility field partnerships, deployment protocols, and regulatory compliance across Nigeria.",
+      image: "/team/folashade-adeyemi.jpg",
+      initials: "FA",
+      credentials: "MBA, BEng Civil Engineering",
+      linkedin: "https://linkedin.com",
+      focus: "Utility Partnerships & Field Diagnostics"
+    }
+  ]
+};
+
 export const footerContent = {
   tagline: "Every Drop. Better Understood.",
   shortDescription: "Turning water infrastructure data into actionable intelligence for more efficient, reliable and resilient water systems.",

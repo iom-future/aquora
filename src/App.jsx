@@ -5,8 +5,10 @@ import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import IntelligenceLoop from './components/IntelligenceLoop';
 import Audience from './components/Audience';
+import Testimonials from './components/Testimonials';
 import FutureVision from './components/FutureVision';
 import Trust from './components/Trust';
+import Team from './components/Team';
 import PilotForm from './components/PilotForm';
 import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
@@ -25,7 +27,7 @@ function App() {
         {/* 03. The Challenge / Problem */}
         <Problem />
 
-        {/* 04. The Solution / How Aquora Works + Interactive Demonstration */}
+        {/* 04. The Solution / How Aquora Works Bento Grid */}
         <HowItWorks />
 
         {/* 05. Platform Capabilities */}
@@ -37,23 +39,29 @@ function App() {
         {/* 07. Who Aquora Is For / Audience */}
         <Audience />
 
-        {/* 08. Beyond Monitoring — Long-Term Vision & Digital Twin Layers */}
+        {/* 08. Industry Testimonials & Operator Perspectives */}
+        <Testimonials />
+
+        {/* 09. Beyond Monitoring — Long-Term Vision & Digital Twin Layers */}
         <FutureVision />
 
-        {/* 09. Trust, Data & Responsible Monitoring */}
+        {/* 10. Trust, Data & Responsible Monitoring */}
         <Trust />
 
-        {/* 10. Pilot Programme & Early Access Application */}
+        {/* 11. Team & Leadership */}
+        <Team />
+
+        {/* 12. Pilot Programme & Early Access Application */}
         <PilotForm />
 
-        {/* 11. Frequently Asked Questions */}
+        {/* 13. Frequently Asked Questions */}
         <FAQ />
 
-        {/* 12. Final Call to Action */}
+        {/* 14. Final Call to Action */}
         <FinalCTA />
       </main>
 
-      {/* 13. Comprehensive Footer */}
+      {/* 15. Comprehensive Footer */}
       <Footer />
     </div>
   );
