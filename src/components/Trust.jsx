@@ -32,7 +32,8 @@ export default function Trust() {
   const sample = trustData.sampleAssetTelemetry;
 
   return (
-    <section id="trust" className="relative w-full max-w-full py-24 sm:py-32 bg-[#F0F7FF] border-t border-sky-100 overflow-hidden">
+    <section id="about" className="relative w-full max-w-full py-24 sm:py-32 bg-[#F0F7FF] border-t border-sky-100 overflow-hidden">
+      <div id="trust" className="absolute -top-24 left-0 pointer-events-none" />
       <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">

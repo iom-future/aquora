@@ -17,7 +17,8 @@ const teamImages = {
 
 export default function Team() {
   return (
-    <section id="about" className="relative w-full max-w-full py-24 sm:py-32 bg-white border-t border-sky-100 overflow-hidden">
+    <section id="team" className="relative w-full max-w-full py-24 sm:py-32 bg-white border-t border-sky-100 overflow-hidden">
+      <div id="leadership" className="absolute -top-24 left-0 pointer-events-none" />
       <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
 
       {/* Ambient background glow */}

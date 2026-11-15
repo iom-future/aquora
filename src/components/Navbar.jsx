@@ -1,14 +1,68 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import AquoraLogo from './common/AquoraLogo';
 import { navigationLinks } from '../data/content';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const sectionIds = navigationLinks.map(link => link.href.replace('#', ''));
+
+    const handleScroll = () => {
+      // If user reached bottom of page, activate last link (FAQ)
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+        setActiveSection(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      // If at top in Hero, clear active link
+      if (window.scrollY < 200) {
+        setActiveSection('');
+        return;
+      }
+
+      const navOffset = 150;
+      let current = '';
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= navOffset && rect.bottom > navOffset) {
+            current = id;
+            break;
+          }
+        }
+      }
+
+      if (!current) {
+        for (let i = sectionIds.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sectionIds[i]);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= navOffset) {
+              current = sectionIds[i];
+              break;
+            }
+          }
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleScrollTo = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    const targetId = href.replace('#', '');
+    setActiveSection(targetId);
     const target = document.querySelector(href);
     if (target) {
       const navHeight = 90;
@@ -30,6 +84,7 @@ export default function Navbar() {
             href="#"
             onClick={(e) => {
               e.preventDefault();
+              setActiveSection('');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284C7] rounded-lg flex-shrink-0"
@@ -43,18 +98,31 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop Navigation Links in the center (NOT in an inner pill) */}
-          <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9">
-            {navigationLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleScrollTo(e, link.href)}
-                className="text-sm font-medium text-[#334155] hover:text-[#0284C7] transition-colors whitespace-nowrap"
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Desktop Navigation Links with Active State */}
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+            {navigationLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className={`relative px-3.5 py-1.5 rounded-full text-xs xl:text-sm transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? 'text-[#0284C7] font-semibold bg-sky-100/90 shadow-2xs border border-sky-200/80'
+                      : 'text-[#475569] font-medium hover:text-[#0284C7] hover:bg-sky-50/70 border border-transparent'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] animate-pulse" />
+                    )}
+                    <span>{link.name}</span>
+                  </span>
+                </a>
+              );
+            })}
           </nav>
 
           {/* Primary CTA Button on Desktop */}
@@ -95,16 +163,26 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-2.5 w-full rounded-2xl bg-white/95 backdrop-blur-2xl border border-sky-200/90 shadow-2xl p-4 sm:p-5 space-y-3 animate-fade-in">
             <div className="flex flex-col space-y-1">
-              {navigationLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleScrollTo(e, link.href)}
-                  className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#0F172A] hover:bg-sky-50 hover:text-[#0284C7] transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navigationLinks.map((link) => {
+                const isActive = activeSection === link.href.replace('#', '');
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleScrollTo(e, link.href)}
+                    className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                      isActive
+                        ? 'bg-sky-100/90 text-[#0284C7] font-semibold border border-sky-200/80'
+                        : 'text-[#0F172A] hover:bg-sky-50 hover:text-[#0284C7] font-medium'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+                    )}
+                  </a>
+                );
+              })}
             </div>
 
             <div className="pt-2 border-t border-sky-100">

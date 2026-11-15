@@ -1,8 +1,9 @@
 export const navigationLinks = [
   { name: 'Platform', href: '#platform' },
-  { name: 'Technology', href: '#how-it-works' },
+  { name: 'Technology', href: '#technology' },
   { name: 'Solutions', href: '#solutions' },
   { name: 'About', href: '#about' },
+  { name: 'Team', href: '#team' },
   { name: 'FAQ', href: '#faq' },
 ];
 
